@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="id" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu - BELAJAR</title>
+    <meta name="description" content="Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu, , , , , , , 0, , , , , , 0, contoh-pendahuluan-tentang-rancang-bangun-webserver-berbasis-ubuntu, BELAJAR" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu - BELAJAR" />
+    <meta property="og:description" content="Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu, , , , , , , 0, , , , , , 0, contoh-pendahuluan-tentang-rancang-bangun-webserver-berbasis-ubuntu, BELAJAR" />
+    <meta property="og:site_name" content="BELAJAR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu - BELAJAR" />
+    <meta name="twitter:description" content="Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu, , , , , , , 0, , , , , , 0, contoh-pendahuluan-tentang-rancang-bangun-webserver-berbasis-ubuntu, BELAJAR" />
+    <link rel='stylesheet' id='generate-style-css' href='https://materimakalah.github.io/css/main.min.css'?ver=3.2.4'
+        media='all' />
+    <link rel='stylesheet' id='ez-toc-css' href='https://materimakalah.github.io/css/screen.min.css'?ver=2.0.40' media='all' />
+    <style id='generate-style-inline-css'>
+        body {
+            background-color: #f7f7f7;
+            color: #222222;
+        }
+
+        a {
+            color: #1e73be;
+        }
+
+        a:hover,
+        a:focus,
+        a:active {
+            color: #000000;
+        }
+
+        .wp-block-group__inner-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .generate-back-to-top {
+            font-size: 20px;
+            border-radius: 3px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            line-height: 40px;
+            width: 40px;
+            text-align: center;
+            z-index: 10;
+            transition: opacity 300ms ease-in-out;
+            opacity: 0.1;
+            transform: translateY(1000px);
+        }
+
+        .generate-back-to-top__show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navigation-search {
+            position: absolute;
+            left: -99999px;
+            pointer-events: none;
+            visibility: hidden;
+            z-index: 20;
+            width: 100%;
+            top: 0;
+            transition: opacity 100ms ease-in-out;
+            opacity: 0;
+        }
+
+        .navigation-search.nav-search-active {
+            left: 0;
+            right: 0;
+            pointer-events: auto;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .navigation-search input[type="search"] {
+            outline: 0;
+            border: 0;
+            vertical-align: bottom;
+            line-height: 1;
+            opacity: 0.9;
+            width: 100%;
+            z-index: 20;
+            border-radius: 0;
+            -webkit-appearance: none;
+            height: 60px;
+        }
+
+        .navigation-search input::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        .navigation-search input::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        .navigation-search input::-webkit-search-decoration,
+        .navigation-search input::-webkit-search-cancel-button,
+        .navigation-search input::-webkit-search-results-button,
+        .navigation-search input::-webkit-search-results-decoration {
+            display: none;
+        }
+
+        .gen-sidebar-nav .navigation-search {
+            top: auto;
+            bottom: 0;
+        }
+
+        :root {
+            --contrast: #222222;
+            --contrast-2: #575760;
+            --contrast-3: #b2b2be;
+            --base: #f0f0f0;
+            --base-2: #f7f8f9;
+            --base-3: #ffffff;
+            --accent: #1e73be;
+        }
+
+        .has-contrast-color {
+            color: var(--contrast);
+        }
+
+        .has-contrast-background-color {
+            background-color: var(--contrast);
+        }
+
+        .has-contrast-2-color {
+            color: var(--contrast-2);
+        }
+
+        .has-contrast-2-background-color {
+            background-color: var(--contrast-2);
+        }
+
+        .has-contrast-3-color {
+            color: var(--contrast-3);
+        }
+
+        .has-contrast-3-background-color {
+            background-color: var(--contrast-3);
+        }
+
+        .has-base-color {
+            color: var(--base);
+        }
+
+        .has-base-background-color {
+            background-color: var(--base);
+        }
+
+        .has-base-2-color {
+            color: var(--base-2);
+        }
+
+        .has-base-2-background-color {
+            background-color: var(--base-2);
+        }
+
+        .has-base-3-color {
+            color: var(--base-3);
+        }
+
+        .has-base-3-background-color {
+            background-color: var(--base-3);
+        }
+
+        .has-accent-color {
+            color: var(--accent);
+        }
+
+        .has-accent-background-color {
+            background-color: var(--accent);
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        .entry-content>[class*="wp-block-"]:not(:last-child) {
+            margin-bottom: 1.5em;
+        }
+
+        .main-navigation .main-nav ul ul li a {
+            font-size: 14px;
+        }
+
+        .sidebar .widget,
+        .footer-widgets .widget {
+            font-size: 17px;
+        }
+
+        @media (max-width:768px) {
+            h1 {
+                font-size: 31px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            h4 {
+                font-size: 22px;
+            }
+
+            h5 {
+                font-size: 19px;
+            }
+        }
+
+        .top-bar {
+            background-color: #636363;
+            color: #ffffff;
+        }
+
+        .top-bar a {
+            color: #ffffff;
+        }
+
+        .top-bar a:hover {
+            color: #303030;
+        }
+
+        .site-header {
+            background-color: #ffffff;
+        }
+
+        .main-title a,
+        .main-title a:hover {
+            color: #222222;
+        }
+
+        .site-description {
+            color: #757575;
+        }
+
+        .main-navigation,
+        .main-navigation ul ul {
+            background-color: #ed4250;
+        }
+
+        .main-navigation .main-nav ul li a,
+        .main-navigation .menu-toggle,
+        .main-navigation .menu-bar-items {
+            color: #ffffff;
+        }
+
+        .main-navigation .main-nav ul li:not([class*="current-menu-"]):hover>a,
+        .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus>a,
+        .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"])>a,
+        .main-navigation .menu-bar-item:hover>a,
+        .main-navigation .menu-bar-item.sfHover>a {
+            color: #ffffff;
+            background-color: #c42f2f;
+        }
+
+        button.menu-toggle:hover,
+        button.menu-toggle:focus {
+            color: #ffffff;
+        }
+
+        .main-navigation .main-nav ul li[class*="current-menu-"]>a {
+            color: #ffffff;
+            background-color: #c42f2f;
+        }
+
+        .navigation-search input[type="search"],
+        .navigation-search input[type="search"]:active,
+        .navigation-search input[type="search"]:focus,
+        .main-navigation .main-nav ul li.search-item.active>a,
+        .main-navigation .menu-bar-items .search-item.active>a {
+            color: #ffffff;
+            background-color: #c42f2f;
+        }
+
+        .main-navigation ul ul {
+            background-color: #c42f2f;
+        }
+
+        .main-navigation .main-nav ul ul li a {
+            color: #ffffff;
+        }
+
+        .main-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover>a,
+        .main-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus>a,
+        .main-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"])>a {
+            color: #fcd9d6;
+            background-color: #c42f2f;
+        }
+
+        .main-navigation .main-nav ul ul li[class*="current-menu-"]>a {
+            color: #fcd9d6;
+            background-color: #c42f2f;
+        }
+
+        .separate-containers .inside-article,
+        .separate-containers .comments-area,
+        .separate-containers .page-header,
+        .one-container .container,
+        .separate-containers .paging-navigation,
+        .inside-page-header {
+            background-color: #ffffff;
+        }
+
+        .entry-title a {
+            color: #222222;
+        }
+
+        .entry-title a:hover {
+            color: #55555e;
+        }
+
+        .entry-meta {
+            color: #595959;
+        }
+
+        .sidebar .widget {
+            background-color: #ffffff;
+        }
+
+        .footer-widgets {
+            background-color: #ffffff;
+        }
+
+        .footer-widgets .widget-title {
+            color: #000000;
+        }
+
+        .site-info {
+            color: #ffffff;
+            background-color: #55555e;
+        }
+
+        .site-info a {
+            color: #ffffff;
+        }
+
+        .site-info a:hover {
+            color: #d3d3d3;
+        }
+
+        .footer-bar .widget_nav_menu .current-menu-item a {
+            color: #d3d3d3;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="password"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="number"],
+        textarea,
+        select {
+            color: #666666;
+            background-color: #fafafa;
+            border-color: #cccccc;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="password"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            color: #666666;
+            background-color: #ffffff;
+            border-color: #bfbfbf;
+        }
+
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        a.button,
+        a.wp-block-button__link:not(.has-background) {
+            color: #ffffff;
+            background-color: #55555e;
+        }
+
+        button:hover,
+        html input[type="button"]:hover,
+        input[type="reset"]:hover,
+        input[type="submit"]:hover,
+        a.button:hover,
+        button:focus,
+        html input[type="button"]:focus,
+        input[type="reset"]:focus,
+        input[type="submit"]:focus,
+        a.button:focus,
+        a.wp-block-button__link:not(.has-background):active,
+        a.wp-block-button__link:not(.has-background):focus,
+        a.wp-block-button__link:not(.has-background):hover {
+            color: #ffffff;
+            background-color: #3f4047;
+        }
+
+        a.generate-back-to-top {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+        }
+
+        a.generate-back-to-top:hover,
+        a.generate-back-to-top:focus {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+        }
+
+        @media (max-width:768px) {
+
+            .main-navigation .menu-bar-item:hover>a,
+            .main-navigation .menu-bar-item.sfHover>a {
+                background: none;
+                color: #ffffff;
+            }
+        }
+
+        .nav-below-header .main-navigation .inside-navigation.grid-container,
+        .nav-above-header .main-navigation .inside-navigation.grid-container {
+            padding: 0px 20px 0px 20px;
+        }
+
+        .site-main .wp-block-group__inner-container {
+            padding: 40px;
+        }
+
+        .separate-containers .paging-navigation {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .entry-content .alignwide,
+        body:not(.no-sidebar) .entry-content .alignfull {
+            margin-left: -40px;
+            width: calc(100% + 80px);
+            max-width: calc(100% + 80px);
+        }
+
+        .rtl .menu-item-has-children .dropdown-menu-toggle {
+            padding-left: 20px;
+        }
+
+        .rtl .main-navigation .main-nav ul li.menu-item-has-children>a {
+            padding-right: 20px;
+        }
+
+        @media (max-width:768px) {
+
+            .separate-containers .inside-article,
+            .separate-containers .comments-area,
+            .separate-containers .page-header,
+            .separate-containers .paging-navigation,
+            .one-container .site-content,
+            .inside-page-header {
+                padding: 30px;
+            }
+
+            .site-main .wp-block-group__inner-container {
+                padding: 30px;
+            }
+
+            .inside-top-bar {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+
+            .inside-header {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+
+            .widget-area .widget {
+                padding-top: 30px;
+                padding-right: 30px;
+                padding-bottom: 30px;
+                padding-left: 30px;
+            }
+
+            .footer-widgets-container {
+                padding-top: 30px;
+                padding-right: 30px;
+                padding-bottom: 30px;
+                padding-left: 30px;
+            }
+
+            .inside-site-info {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+
+            .entry-content .alignwide,
+            body:not(.no-sidebar) .entry-content .alignfull {
+                margin-left: -30px;
+                width: calc(100% + 60px);
+                max-width: calc(100% + 60px);
+            }
+
+            .one-container .site-main .paging-navigation {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* End cached CSS */
+        .is-right-sidebar {
+            width: 30%;
+        }
+
+        .is-left-sidebar {
+            width: 30%;
+        }
+
+        .site-content .content-area {
+            width: 70%;
+        }
+
+        @media (max-width:768px) {
+
+            .main-navigation .menu-toggle,
+            .sidebar-nav-mobile:not(#sticky-placeholder) {
+                display: block;
+            }
+
+            .main-navigation ul,
+            .gen-sidebar-nav,
+            .main-navigation:not(.slideout-navigation):not(.toggled) .main-nav>ul,
+            .has-inline-mobile-toggle #site-navigation .inside-navigation>*:not(.navigation-search):not(.main-nav) {
+                display: none;
+            }
+
+            .nav-align-right .inside-navigation,
+            .nav-align-center .inside-navigation {
+                justify-content: space-between;
+            }
+        }
+    </style>
+    <link rel="icon" href="https://materimakalah.github.io/img/cropped-soalbelajar-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://materimakalah.github.io/img/cropped-soalbelajar-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://materimakalah.github.io/img/cropped-soalbelajar-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://materimakalah.github.io/img/cropped-soalbelajar-270x270.png" />
+</head>
+
+<body
+    class="home blog wp-custom-logo wp-embed-responsive right-sidebar nav-above-header separate-containers nav-search-enabled nav-aligned-center header-aligned-center dropdown-hover"
+    itemtype="https://schema.org/Blog" itemscope>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-dark-grayscale">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 0.49803921568627" />
+                    <feFuncG type="table" tableValues="0 0.49803921568627" />
+                    <feFuncB type="table" tableValues="0 0.49803921568627" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-grayscale">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 1" />
+                    <feFuncG type="table" tableValues="0 1" />
+                    <feFuncB type="table" tableValues="0 1" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-yellow">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" />
+                    <feFuncG type="table" tableValues="0 1" />
+                    <feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-red">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 1" />
+                    <feFuncG type="table" tableValues="0 0.27843137254902" />
+                    <feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-midnight">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 0" />
+                    <feFuncG type="table" tableValues="0 0.64705882352941" />
+                    <feFuncB type="table" tableValues="0 1" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-magenta-yellow">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.78039215686275 1" />
+                    <feFuncG type="table" tableValues="0 0.94901960784314" />
+                    <feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-green">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" />
+                    <feFuncG type="table" tableValues="0 1" />
+                    <feFuncB type="table" tableValues="0.44705882352941 0.4" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-orange">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.098039215686275 1" />
+                    <feFuncG type="table" tableValues="0 0.66274509803922" />
+                    <feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><a class="screen-reader-text skip-link" href="#content" title="Langsung ke isi">Langsung ke isi</a>
+    <nav class="main-navigation nav-align-center has-menu-bar-items sub-menu-right" id="site-navigation"
+        aria-label="Utama" itemtype="https://schema.org/SiteNavigationElement" itemscope>
+        <div class="inside-navigation grid-container">
+            <form method="get" class="search-form navigation-search" action="/">
+                <input type="search" class="search-field" value="" name="q" title="Cari" />
+            </form> <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+                        <path
+                            d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z" />
+                    </svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="1em" height="1em">
+                        <path
+                            d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" />
+                    </svg></span><span class="mobile-menu">Menu</span> </button>
+            <div id="primary-menu" class="main-nav">
+                <ul id="menu-soal-belajar" class=" menu sf-menu">
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1"><a
+                            href="https://materimakalah.github.io">Home</a></li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2"><a
+                            href="https://materimakalah.github.io/page/dmca.html">DMCA</a></li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3"><a
+                            href="https://materimakalah.github.io/page/privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+                </ul>
+            </div>
+            <div class="menu-bar-items"><span class="menu-bar-item search-item"><a aria-label="Buka Kolom Pencarian"
+                        href="#"><span class="gp-icon icon-search"><svg viewBox="0 0 512 512"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z" />
+                            </svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                width="1em" height="1em">
+                                <path
+                                    d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" />
+                            </svg></span></a></span></div>
+        </div>
+    </nav>
+    <header class="site-header grid-container" id="masthead" aria-label="Situs"
+        itemtype="https://schema.org/WPHeader" itemscope>
+        <div class="inside-header grid-container">
+            <h1 class="site-logo">
+                <a href="https://materimakalah.github.io" rel="home"> BELAJAR</a>
+            </h1>
+        </div>
+    </header>
+
+    <div class="site grid-container container hfeed" id="page">
+        <div class="site-content" id="content">
+            <div class="content-area" id="primary">
+                    <main class="site-main" id="main">
+        <article id="post-1327" class="post-1327 post type-post status-publish format-standard hentry category-info"
+            itemtype="https://schema.org/CreativeWork" itemscope="">
+            <div class="inside-article">
+                <header class="entry-header" aria-label="Konten">
+                    <h1 class="entry-title" itemprop="headline">Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu</h1>
+                    <div class="entry-meta">
+                       <span
+                            class="byline">oleh <span class="author vcard" itemprop="author"
+                                itemtype="https://schema.org/Person" itemscope=""><span class="author-name"
+                                    itemprop="name">ilham526</span></span></span>
+                    </div>
+                </header>
+                <div class="entry-content" itemprop="text">
+                    <div style="text-align: center">
+                        <img src="https://tse1.mm.bing.net/th?q=Contoh+Pendahuluan+Tentang+Rancang+Bangun+Webserver+Berbasis+Ubuntu" alt="Contoh Pendahuluan Tentang Rancang Bangun Webserver Berbasis Ubuntu">
+                    </div>
+                    <p></p>
+                    <p>Linux ubuntu adalah program yang berbasis pada?</p>
+                    <div id="ez-toc-container"
+                        class="ez-toc-v2_0_40 counter-hierarchy ez-toc-counter ez-toc-light-blue ez-toc-container-direction">
+                        <div class="ez-toc-title-container">
+                            <p class="ez-toc-title">Daftar Isi</p>
+                            <span class="ez-toc-title-toggle"><a href="#"
+                                    class="ez-toc-pull-right ez-toc-btn ez-toc-btn-xs ez-toc-btn-default ez-toc-toggle"
+                                    area-label="ez-toc-toggle-icon-1"><label for="item-63b392361c4a0"
+                                        aria-label="Table of Content"><span
+                                            style="display: flex;align-items: center;width: 35px;height: 30px;justify-content: center;direction:ltr;"><svg
+                                                style="fill: #999;color:#999" xmlns="http://www.w3.org/2000/svg"
+                                                class="list-377408" width="20px" height="20px" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path
+                                                    d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z"
+                                                    fill="currentColor"></path>
+                                            </svg><svg style="fill: #999;color:#999" class="arrow-unsorted-368013"
+                                                xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                                viewBox="0 0 24 24" version="1.2" baseProfile="tiny">
+                                                <path
+                                                    d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z">
+                                                </path>
+                                            </svg></span></label><input type="checkbox" id="item-63b392361c4a0"></a></span>
+                        </div>
+                        <nav>
+                            <ul class="ez-toc-list ez-toc-list-level-1 ">
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#linux-ubuntu-adalah-program-yang-berbasis-pada">1.
+                                            Linux ubuntu adalah program yang berbasis pada?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#linux-ubuntu-adalah-program-yang-berbasis-pada">2.
+                                            Linux ubuntu adalah program yang berbasis pada?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#linux-ubuntu-merupakan-program-berbasis-pada-apa">3.
+                                            linux ubuntu merupakan program berbasis pada apa</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#1trojan-dan-worm-termasuk-dalam-kategori2red-hat-merupakan-pengembangan-dari-sistem-operasi-3linux-ubuntu-merupakan-program-yang-berbasis-pada">4.
+                                            1}trojan dan worm termasuk dalam kategori???
+2}red hat merupakan pengembangan dari sistem operasi.....
+3}linux ubuntu merupakan program yang berbasis pada....</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#jelaskan-tentang-webserver">5.
+                                            Jelaskan tentang webserver?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#carilah-contoh-penerapan-dalam-membangun-dan-menguji-basis-data-%e2%80%8b">6.
+                                            carilah contoh penerapan dalam membangun dan menguji basis data ​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#kita-bisa-membangun-sebuah-server-menggunakan-linux-ubuntu-server-dengan-segala-kelengkapan-konfigurasinya-apakah-kita-bisa-membangun-sebuah-server-menggunakan-linux-ubuntu-desktop">7.
+                                            Kita bisa membangun sebuah server menggunakan Linux Ubuntu Server dengan segala kelengkapan konfigurasinya. Apakah kita bisa membangun sebuah server menggunakan Linux Ubuntu Desktop  ?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#kebangkitan-ekonomi-kelautan-indonesia-penanggulangan-dengan-perubahan-paradigma-pembangunan-nasional-yaitu-dari%e2%80%a6-a-pembangunan-berbasis-pulau-ke-pembangunan-berbasis-air-b-pembangunan-berb">8.
+                                            Kebangkitan ekonomi kelautan Indonesia penanggulangan dengan perubahan paradigma pembangunan nasional yaitu dari… *a. pembangunan berbasis pulau ke pembangunan berbasis air.b. pembangunan berbasis lahan ke pembangunan berbasis laut.c. pembangunan berbasis laut ke pembangunan berbasis darat.d. pembangunan berbasis air ke pembangunan berbasis pulau.​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#apa-perubahan-paradigma-pembangunan-dari-pembangunan-berbasis-daratan-menjadi-pembangunan-berbasis-kelautan%e2%80%8b">9.
+                                            apa perubahan paradigma pembangunan , dari pembangunan berbasis daratan menjadi pembangunan berbasis kelautan?​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tolong-buatkan-contoh-rancangan-basis-data-tentang-apa-ajaa-bebas">10.
+                                            Tolong buatkan contoh rancangan basis data tentang apa ajaa bebas</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#berapakah-minimum-spesifikasi-untuk-webserver-pribadi">11.
+                                            Berapakah minimum spesifikasi untuk webserver pribadi?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#bahasa-inggrisnya-rancang-bangun-sistem-informasi-akademik-pada-sekolah-dasar-negeri-1-sepang-jaya-bandar-lampung-berbasis-web">12.
+                                            bahasa inggrisnya "rancang bangun sistem informasi akademik pada sekolah dasar negeri 1 sepang jaya bandar lampung berbasis web" ?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#sebutkan-4-hal-yang-harus-diperhatikan-dalam-merancang-basis-data">13.
+                                            Sebutkan 4 hal yang harus diperhatikan dalam merancang basis data</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#bagian-pendahuluan-dari-rancangan-laporan-penilitian">14.
+                                            bagian pendahuluan dari rancangan laporan penilitian </a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#jelaskan-dan-berikan-contoh-apa-saja-kendala-dalam-pembangunan-pariwisata-yang-berbasis-pada-alam">15.
+                                            Jelaskan dan Berikan Contoh Apa Saja Kendala Dalam Pembangunan Pariwisata yang Berbasis Pada Alam</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#apa-dampak-perubahan-paradigma-pembangunan-dari-pembangunan-berbasis-daratan-menjadi-pembangunan-berbasis-daratan-menjadi-pembangunan-berbasis-kelautan%e2%80%8b">16.
+                                            apa dampak perubahan paradigma pembangunan dari pembangunan berbasis daratan menjadi pembangunan berbasis daratan menjadi pembangunan berbasis kelautan​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#langkah-untuk-tes-koneksi-ke-localhost-webserver">17.
+                                            langkah" untuk tes koneksi ke localhost webserver</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#apakah-boleh-kita-menginstall-mysql-lagi-ketika-komputer-telah-terinstal-webserver-wamp">18.
+                                            apakah boleh kita menginstall mysql lagi ketika komputer telah terinstal webserver wamp?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#buatlah-sebuah-rancangan-produk-berbasis-media-campuran-%e2%80%8b">19.
+                                            Buatlah sebuah rancangan produk berbasis media campuran..​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#carilah-contoh-penerapan-dalam-membangun-dan-menguji-basis-data-dan-membangun-menguji-jaringan-%e2%80%8b">20.
+                                            carilah contoh penerapan dalam membangun dan menguji basis data dan membangun menguji jaringan ​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#sistem-operasi-berbasis-gui-dibawah-ini-kecuali-a-appleb-mikrotik-c-macintosh-d-windows-e-ubuntu-%e2%80%8b">21.
+                                            Sistem Operasi berbasis GUI dibawah ini kecuali.. A. AppleB. Mikrotik C. Macintosh D. Windows E. Ubuntu ​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#apakah-boleh-kita-menginstall-mysql-lagi-ketika-komputer-telah-terinstal-webserver-wamp">22.
+                                            apakah boleh kita menginstall mysql lagi ketika komputer telah terinstal webserver wamp?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#jelaskan-hakikat-paradigma-pembangunan-berbasis-pancasila-sertakan-contohnya">23.
+                                            Jelaskan hakikat paradigma pembangunan berbasis pancasila? sertakan contohnya?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#contoh-studi-pendahuluan-di-dalam-rancangan-penelitian">24.
+                                            contoh studi pendahuluan di dalam rancangan penelitian </a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#langkah-langkah-membuat-localhost-webserver">25.
+                                            Langkah langkah membuat localhost webserver</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#apa-yang-dimaksud-dengan-pembangunan-berbasis-darat-dan-pembangunan-berbasis-laut">26.
+                                            Apa yang dimaksud dengan pembangunan berbasis darat dan pembangunan berbasis laut? </a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#ubuntu-merupakan-contoh">27.
+                                            ubuntu merupakan contoh</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tentukan-perbedaan-langkah-langkah-pada-instalasi-sistem-operasi-ubuntu-server-berbasis-gui-dan-teks-cli">28.
+                                            tentukan perbedaan langkah-langkah pada instalasi sistem operasi ubuntu server berbasis GUI dan teks (CLI)</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#program-apa-saja-yang-di-ciptakan-linux-selain-ubuntu-dan-apakah-semua-tampilannya-berbeda-dengan-ubuntu">29.
+                                            program apa saja yang di ciptakan linux selain ubuntu dan apakah semua tampilannya berbeda dengan ubuntu</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#13-kebangkitan-ekonomi-kelautan-di-indonesia-di-tandai-dengan-perubahan-paradigma-pembangunannasional-adapun-perubahan-paradigma-tersebut-adalah-perubahan-a-pembangunan-nasional-berbasis-lautan">30.
+                                            13. Kebangkitan ekonomi kelautan di Indonesia di tandai dengan perubahan paradigma pembangunannasional. Adapun perubahan paradigma tersebut adalah perubahan ....A. pembangunan nasional berbasis lautan menjadi pembangunan berbasis daratanB. pembangunan Nasional berbasis daratan tetap difokuskan pembangunan berbasis daratanC. pembangunan Nasional berbasis daratan menjadi pembangunan berbasis pegunungan yangbertujuan meningkatkan pariwisataD. pembangunan Nasional berbasis daratan menjadi pembangunan berbasis kelautan​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#merancang-desain-kegiatan-berbasis-proyek">31.
+                                            merancang desain kegiatan berbasis proyek</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#sebutkan-2-contoh-rancangan-produk-kerajinan-berbasis-media-campuran-%e2%80%8b">32.
+                                            sebutkan 2 contoh rancangan produk kerajinan berbasis media campuran ​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tentukan-perbedaan-langkah-langkah-pada-instalasi-sistem-operasi-ubuntu-server-berbasis-gui-dan-teks-cli">33.
+                                            tentukan perbedaan langkah langkah pada instalasi sistem operasi ubuntu server berbasis gui dan teks cli</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#berikan-pendapat-kalian-dari-hasil-proses-instalasi-ubuntu-server-berbasis-gui-dan-cli-yang-dilakukan-manakah-yang-lebih-baik">34.
+                                            Berikan pendapat kalian dari hasil proses instalasi ubuntu server berbasis GUI dan CLI yang dilakukan manakah yang lebih baik?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#rancangan-teknologi-pendidikan-berbasis-perpustakaan">35.
+                                            Rancangan Teknologi Pendidikan berbasis Perpustakaan</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#bagaimana-rancang-bangun-jaringan-berbasis-kabel-dan-nirkabel-dalam-jaringan-vlan-dan-rauting-tolong-jawab-ya-kak-besok-mau-dikumpul%e2%80%8b">36.
+                                            Bagaimana rancang bangun jaringan berbasis kabel Dan nirkabel dalam jaringan VLAN Dan rauting? Tolong jawab ya kak besok mau dikumpul​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#cara-membuat-rancangan-penilaian-berbasis-kelas">37.
+                                            cara membuat rancangan penilaian berbasis kelas?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tuliskan-suatu-rancangan-kerajinan-berbasis-media-campuran%e2%80%8b">38.
+                                            Tuliskan suatu rancangan kerajinan berbasis media campuran​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#yang-dimaksud-dengan-merancang-basis-data-adalaha-merancang-program-untuk-system-basis-data-b-merancang-dbms-dalam-system-basis-data-c-merancang-program-untuk-basis-data-d-merancang-file-un">39.
+                                            Yang dimaksud dengan merancang basis data adalah?
+A. Merancang program untuk system basis data.
+B . Merancang DBMS dalam system basis data.
+C . Merancang program untuk basis data.
+D. Merancang file untuk basis data.</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#apa-perbedaan-langkah-langkah-pada-instalasi-sistem-operasi-ubuntu-server-berbasis-gui-dan-tekscli">40.
+                                            Apa perbedaan langkah langkah pada instalasi sistem operasi ubuntu server berbasis GUI dan teks(CLI)?</a>
+                                    </li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                                            <h2 class="ez-toc-section" id="linux-ubuntu-adalah-program-yang-berbasis-pada">
+                            1. Linux ubuntu adalah program yang berbasis pada?</h2><br />
+                        Berbasis <strong>Open Source </strong>(bebas diedarkan dan dimodifikasi kode2 sistemnya)<br />Semoga membantu...program atau lebih tepatnya sistem operasi yang berbasi pada kernel Linux yang bersifat open source dimana kode sumbernya bebas digunakan, dimodifikasi, disebarluaskan, dan dipublikasikan.<br />
+                                            <h2 class="ez-toc-section" id="linux-ubuntu-adalah-program-yang-berbasis-pada">
+                            2. Linux ubuntu adalah program yang berbasis pada?</h2><br />
+                        klo setau gua sih berbasis pda virus<br />
+                                            <h2 class="ez-toc-section" id="linux-ubuntu-merupakan-program-berbasis-pada-apa">
+                            3. linux ubuntu merupakan program berbasis pada apa</h2><br />
+                        Ubuntu merupakan salah satu distribusi Linux yang berbasiskan Debian dan didistribusikan sebagaisoftware bebas. Ubuntu merupakan sistem operasi berbasis Linux<br /><br />Maaf kalo salah!<br /><br />
+                                            <h2 class="ez-toc-section" id="1trojan-dan-worm-termasuk-dalam-kategori2red-hat-merupakan-pengembangan-dari-sistem-operasi-3linux-ubuntu-merupakan-program-yang-berbasis-pada">
+                            4. 1}trojan dan worm termasuk dalam kategori???
+2}red hat merupakan pengembangan dari sistem operasi.....
+3}linux ubuntu merupakan program yang berbasis pada....</h2><br />
+                        1) Virus<br />2) Linux<br />3) Sistem operasi Linux/Unix<br />
+                                            <h2 class="ez-toc-section" id="jelaskan-tentang-webserver">
+                            5. Jelaskan tentang webserver?</h2><br />
+                        Web server adalah sebuah software yang memberikan layanan berbasis data dan berfungsi menerima permintaan dari HTTP atau HTTPS pada klien yang dikenal dan biasanya kita kenal dengan nama web browser (Mozilla Firefox, Google Chrome) dan untuk mengirimkan kembali yang hasilnya dalam bentuk beberapa halaman.<br />
+                                            <h2 class="ez-toc-section" id="carilah-contoh-penerapan-dalam-membangun-dan-menguji-basis-data-%e2%80%8b">
+                            6. carilah contoh penerapan dalam membangun dan menguji basis data ​</h2><br />
+                        <p>Jawaban:</p><p>Perangkat lunak yang digunakan untuk mengelola dan memanggil kueri (query) basis data disebut sistem manajemen basis data (database management system, DBMS). Sistem basis data dipelajari dalam ilmu informasi.</p><p></p><p>Istilah "basis data" berawal dari ilmu komputer. Meskipun kemudian artinya semakin luas, memasukkan hal-hal di luar bidang elektronika, artikel ini mengenai basis data komputer. Catatan yang mirip dengan basis data sebenarnya sudah ada sebelum revolusi industri yaitu dalam bentuk buku besar, kuitansi dan kumpulan data yang berhubungan dengan bisnis.</p><p></p><p>Konsep dasar dari basis data adalah kumpulan dari catatan-catatan, atau potongan dari pengetahuan. Sebuah basis data memiliki penjelasan terstruktur dari jenis fakta yang tersimpan di dalamnya: penjelasan ini disebut skema. Skema menggambarkan objek yang diwakili suatu basis data, dan hubungan di antara objek tersebut. Ada banyak cara untuk mengorganisasi skema, atau memodelkan struktur basis data: ini dikenal sebagai model basis data atau model data. Model yang umum digunakan sekarang adalah model relasional, yang menurut istilah layman mewakili semua informasi dalam bentuk tabel-tabel yang saling berhubungan di mana setiap tabel terdiri dari baris dan kolom (definisi yang sebenarnya menggunakan terminologi matematika). Dalam model ini, hubungan antar tabel diwakili denga menggunakan nilai yang sama antar tabel. Model yang lain seperti model hierarkis dan model jaringan menggunakan cara yang lebih eksplisit untuk mewakili hubungan antar tabel.</p><p></p><p>Penjelasan:</p><p>Lingkungan basis data adalah sebuah habitat di mana terdapat basis data untuk bisnis. Dalam lingkungan basis data, pengguna memiliki alat untuk mengakses data. Pengguna melakukan semua tipe pekerjaan dan keperluan mereka bervariasi seperti menggali data (data mining), memodifikasi data, atau berusaha membuat data baru. Masih dalam lingkungan basis data, pengguna tertentu tidak diperbolehkan mengakses data, baik secara fisik maupun logis. (Koh, 2005, dalam Janner Simarmata &amp; Imam Paryudi 2006: 33).</p><p></p><p>Perancangan basis data merupakan upaya untuk membangun sebuah basis data dalam suatu lingkungan bisnis. Untuk membangun sebuah basis data terdapat tahapan-tahapan yang perlu kita lalui yaitu:[butuh rujukan]</p><p></p><p>1. Perencanaan basis data</p><p>2. Mendefinisikan sistem</p><p>3. Analisis dan mengumpulkan kebutuhan</p><p>4. Perancangan basis data</p><p>5. Perancangan aplikasi</p><p>6. Membuat prototipe</p><p>7. Implementasi</p><p>8. Konversi data</p><p>9. Pengujian</p><p>10. Pemeliharaan operasional</p><br />
+                                            <h2 class="ez-toc-section" id="kita-bisa-membangun-sebuah-server-menggunakan-linux-ubuntu-server-dengan-segala-kelengkapan-konfigurasinya-apakah-kita-bisa-membangun-sebuah-server-menggunakan-linux-ubuntu-desktop">
+                            7. Kita bisa membangun sebuah server menggunakan Linux Ubuntu Server dengan segala kelengkapan konfigurasinya. Apakah kita bisa membangun sebuah server menggunakan Linux Ubuntu Desktop  ?</h2><br />
+                        Tidak bisa, karna Linux Ubuntu Desktop diperuntukan untuk User. Sama halnya kaya WIN 7<br />Sangat bisa sekali,ubuntu server ada dua versi ,yaitu versi GUI dan CLI.<br />Anda dapat menggunakan yang versi GUI untuk dijadikan server,bedanya hanya pada tampilan saja,kalau yang GUI tampilannya lebih ke grafik tetapi tetap memiliki terminal sebagai tempat untuk melakukan konfigurasi sama halnya dengan versi CLI .<br />
+                                            <h2 class="ez-toc-section" id="kebangkitan-ekonomi-kelautan-indonesia-penanggulangan-dengan-perubahan-paradigma-pembangunan-nasional-yaitu-dari%e2%80%a6-a-pembangunan-berbasis-pulau-ke-pembangunan-berbasis-air-b-pembangunan-berb">
+                            8. Kebangkitan ekonomi kelautan Indonesia penanggulangan dengan perubahan paradigma pembangunan nasional yaitu dari… *a. pembangunan berbasis pulau ke pembangunan berbasis air.b. pembangunan berbasis lahan ke pembangunan berbasis laut.c. pembangunan berbasis laut ke pembangunan berbasis darat.d. pembangunan berbasis air ke pembangunan berbasis pulau.​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>b.pembangunan bebasis lahan ke pembangunan berbasis laut</p><br />
+                                            <h2 class="ez-toc-section" id="apa-perubahan-paradigma-pembangunan-dari-pembangunan-berbasis-daratan-menjadi-pembangunan-berbasis-kelautan%e2%80%8b">
+                            9. apa perubahan paradigma pembangunan , dari pembangunan berbasis daratan menjadi pembangunan berbasis kelautan?​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Karena wilayah laut Indonesia yang terletak pada lokasi yang politis dan ekonomis.</p><p><strong>Penjelasan:</strong></p><p>jadi Indonesia dapat memajukan sektor kelautan seperti pariwisata, perdagangan memanfaatkan sektor laut.</p><br />
+                                            <h2 class="ez-toc-section" id="tolong-buatkan-contoh-rancangan-basis-data-tentang-apa-ajaa-bebas">
+                            10. Tolong buatkan contoh rancangan basis data tentang apa ajaa bebas</h2><br />
+                        Bantuin jawab ya<br />Contoh perancangan Basis Data pada sebuah mini market<br />1. Mencatat seluruh aktivitas jual beli beserta tanggal transaksi<br />2. Menampilkan ketersediaan stok barang<br />3.<br />Mengaktegorikan pembeli yang telah menjadi member (Pelanggan) atau<br />pembeli biasa untuk mendapatkan diskon tertentu.<br />4.<br />Mengakumulasikan dan menyimpan poin pembeli<br />5. Menampilkan pegawai yang melayani suatu transaksi beserta waktunya<br />Entitas dan Atribut<br />A. Pembeli, terdiri<br />a. kd_pembeli<br />b. poin_pembeli<br />B. Pelanggan, terdiri dari atribut<br />a. nama_pelanggan<br />b. ID_pelanggan<br />c. alamat<br />d. telepon<br />C. Barang, terdiri dari Atribut<br />a. kd_barang<br />b. nama_barang<br />c. satuan<br />d. stok_barang<br />e. harga_barang<br />D. Pemasok, terdiri dari atribut<br />a. id_pemasok<br />b. nama_pemasok<br />c. telepon<br />d. alamat<br />E. Diskon, terdiri dari atribut<br />a. kd_diskon<br />b. jumlah_diskon<br />F. Pegawai, terdiri dari atribut<br />a. ID_pegawai<br />b. nama_pegawai<br />c. shift<br />
+                                            <h2 class="ez-toc-section" id="berapakah-minimum-spesifikasi-untuk-webserver-pribadi">
+                            11. Berapakah minimum spesifikasi untuk webserver pribadi?</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Laptop kamu bisa dipakai server pribadi juga</p><p><strong>Penjelasan:</strong></p><p>Kalau pertanyaan tentang "pribadi", bisa memakai laptop yang tidak terpakai. Tinggal hubungkan ke internet dan jalankan ngrok sudah bisa dipakai webserver via tunnel.</p><p>Saya pernah kok mencoba ini. Bahkan ada beberapa client yang mengakses sekaligus (barengan) tapi masih sehat-sehat saja System Monitornya (saya pakai Ubuntu).</p><p>(jaga-jaga kalau muncul pertanyaan buat yang non-pribadi)</p><p>Untuk webserver secara umum dan diakses orang banyak, ada 2 hal yang sangat mempengaruhinya.</p><p><strong>Pertama</strong>, seberapa banyak yang mengakses. Semakin banyak semakin berat.</p><p><strong>Kedua</strong>, bagaimana desain sistem dari web yang akan digunakan. Apakah kode-kodenya sudah dioptimasi? Apakah databasenya tidak rumit?</p><p>Saran saya mending pakai Cloud Computing seperti GCP atau AWS. Bayarnya tergantung seberapa banyak yang mengakses. Kalau overload bisa upgrade spek langsung tanpa ada proses lama seperti hosting konvensional.</p><br />
+                                            <h2 class="ez-toc-section" id="bahasa-inggrisnya-rancang-bangun-sistem-informasi-akademik-pada-sekolah-dasar-negeri-1-sepang-jaya-bandar-lampung-berbasis-web">
+                            12. bahasa inggrisnya "rancang bangun sistem informasi akademik pada sekolah dasar negeri 1 sepang jaya bandar lampung berbasis web" ?</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Design and build an academic information system at the web-based Sepang Jaya 1 Public Elementary School, Bandar Lampung</p><p><strong>Penjelasan:</strong></p><p>Semoga membantu:) </p><p><strong>Jawaban:</strong></p><p>Design and build an academic information system at a web-based public elementary school 1 Sepang Jaya, Bandar Lampung. </p><br />
+                                            <h2 class="ez-toc-section" id="sebutkan-4-hal-yang-harus-diperhatikan-dalam-merancang-basis-data">
+                            13. Sebutkan 4 hal yang harus diperhatikan dalam merancang basis data</h2><br />
+                        Flexibilitas Data (Data Flexibility)<br /><br />Fleksibilitas data dimaksudkan untuk memberikan kemudahan dalam menampilkan kembali data-data yang dipilih dan diperlukan dalam basis data dan mempresentasikannya dalam format-format yang berbeda-beda.<br /><br />Integritas Data (Data Integrity)<br /><br />Integritas data dimaksudkan adalah sebagai sarana untuk selalu meyakinkan bahwa nilai-nilai data dalam sistem basis data adalah benar, konsisten dan selalu tersedia.<br /><br />Keamanan Data (Data Security)<br /><br />Keamanan data diperlukan untuk melindungi data terhadap akses yang tidak legal oleh pihak-pihak yang tidak berwenang yang dimaksud merugikan atau bahkan merusak data dalam sistem basis data, atau dari kerusakan.<br /><br />Independensi Data (Data Independence)<br /><br />Independensi data (Data Independence) dimaksudkan ketidak ketergantungan data, yang dalam hal ini mempunyai dua dimensi, yaitu :<br /><br />Dimensi fisik (Physical Data Independence).<br />Independensi data secara fisik pada dasarnya adalah bahwa deskripsi logik data, atau lebih dikenal sebagai schema, tidak mengalami ketergantungan pada perubahan-perubahan yang terjadi dalam teknik penyimpanan secara fisik. Artinya, bahwa cara-cara penyimpanan dari pengaksesan data dalam sistem basis data dapat diubah tanpa membutuhkan perubahan secara schema logik.<br />Dimensi Logik (Logical Data Independence).<br />
+                                            <h2 class="ez-toc-section" id="bagian-pendahuluan-dari-rancangan-laporan-penilitian">
+                            14. bagian pendahuluan dari rancangan laporan penilitian </h2><br />
+                        latar belakang,tujuan,manfaat,peta konsep dll<br /><br />Bagian ini anatara lain berisi: latar belakang masalah, identifikasi masalah, batasan masalah, rumusan masalah, tujuan penelitian, dan manfaat penelitian.<br /><br />
+                                            <h2 class="ez-toc-section" id="jelaskan-dan-berikan-contoh-apa-saja-kendala-dalam-pembangunan-pariwisata-yang-berbasis-pada-alam">
+                            15. Jelaskan dan Berikan Contoh Apa Saja Kendala Dalam Pembangunan Pariwisata yang Berbasis Pada Alam</h2><br />
+                        <p><strong>Penjelasan:</strong></p><p>Adapun kendala-kendala yang akan dihadapi dalam pengembangan pariwisata, antara lain adalah: kendala alam dan kendala sosial antara lain: pertama, regulasi dan peraturan, kerusuhan sosial serta politik, serta teror yang beberapa kali dan beberapa negara mengeluarkan Travel Warnings agar rakyatnya tidak berkunjung ke Indonesia.</p><p></p><p>Bahkan ada negara yang mengeluarkan Travel Bend, melarang rakyatnya berkunjung ke Indonesia. Akibatnya banyak orang asing yang mahu datang untuk berwisata tapi terhalang. Baik oleh peraturan maupun keadaan, seperti kurang terjaminnya keamanan bagi para wisatawan.</p><br />
+                                            <h2 class="ez-toc-section" id="apa-dampak-perubahan-paradigma-pembangunan-dari-pembangunan-berbasis-daratan-menjadi-pembangunan-berbasis-daratan-menjadi-pembangunan-berbasis-kelautan%e2%80%8b">
+                            16. apa dampak perubahan paradigma pembangunan dari pembangunan berbasis daratan menjadi pembangunan berbasis daratan menjadi pembangunan berbasis kelautan​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Yang pasti pertama berdampak pada anggaran yang dikeluarkan.</p><p>Juga berdampak pada kontraktor, planning dan juga waktu pengerjaan proyek itu sendiri.</p><p><strong>Penjelasan:</strong></p><p>apa dampak perubahan paradigma pembangunan dari pembangunan berbasis daratan menjadi pembangunan berbasis daratan menjadi pembangunan berbasis kelautan = Berdampak Pada Pekerjaan Proyek Tersebut </p><p></p><p>Semoga bermanfaat </p><br />
+                                            <h2 class="ez-toc-section" id="langkah-untuk-tes-koneksi-ke-localhost-webserver">
+                            17. langkah" untuk tes koneksi ke localhost webserver</h2><br />
+                        Aktifkan service webservernya, kemudian buka web browser (Chrom(e/ium), Firefox, IE, dll), masukan alamat "http://localhost"<br />
+                                            <h2 class="ez-toc-section" id="apakah-boleh-kita-menginstall-mysql-lagi-ketika-komputer-telah-terinstal-webserver-wamp">
+                            18. apakah boleh kita menginstall mysql lagi ketika komputer telah terinstal webserver wamp?</h2><br />
+                        tidak boleh, katanya bisa membuat 2 aplikasi yang terinstal menjadi crash dan tidak berfungsi semuanya. sama seperti antivirus ganda bisa saling menyerang. misalnya si antivirus A melaporkan bahwa antivirus B adalah program virus, dan sebaliknya<br />
+                                            <h2 class="ez-toc-section" id="buatlah-sebuah-rancangan-produk-berbasis-media-campuran-%e2%80%8b">
+                            19. Buatlah sebuah rancangan produk berbasis media campuran..​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>1. Batu</p><p>Batu yang digunakan sebagai kerajinan selain batu permata atau batu mulia juga ada batu akik.</p><p>Teknik pengolahan batu sebagai produk kerajinan harus digerinda dahulu, kemudian dironce atau dipahat.</p><p>Karena bahan kerajinan dari batu, maka batu harus mendominasi dari produk kerajinan ini.</p><p>Pembuatan kerajinan batu membutuhkan alat khusus mulai alat pahat, gerinda, mesin pemotong batu dan sebagainya.</p><p>Kerajinan Berbasis Media Campuran</p><p>2. Logam</p><p>Logam merupakan salah satu unsur yang sangat penting bagi kehidupan manusia, tetapi semua benda yang dimiliki manusia memiliki unsur logam.</p><p>Jenis - jenis dan nama yang berbeda beda diantaranya besi, dan alumunium, perunggu, timah, kobalt seng, tembaga, dan logam yang lainnya.</p><p>Bahan alam logam banyak dibuat sebagai perhiasan atau asesories, berkembang pula sebagai pula sebagai benda hias dan fungsional lainnya.</p><p>Seperti gelas, teko, nampan, wadah serbaguna bahkan sampai piala sebagai simbol kejuaraan. Bahan logam diolah dengan teknik bakar/pemanasan, dan tempa.</p><p>Karena bahan kerajinan logam, maka bahan utama yang digunakan adalah logam yang mendominasi dari produk kerajinan ini.</p><p>Pembuatan kerajinan logam membutuhkan alat khusus mulai alat penggiling logam menjadi plat, alat patri, tang lancip, penjepit dan sebagainya.</p><p><strong>Penjelasan:</strong></p><p>sebuah rancangan produk berbasis media campuran</p><br />
+                                            <h2 class="ez-toc-section" id="carilah-contoh-penerapan-dalam-membangun-dan-menguji-basis-data-dan-membangun-menguji-jaringan-%e2%80%8b">
+                            20. carilah contoh penerapan dalam membangun dan menguji basis data dan membangun menguji jaringan ​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>1. Membuat dan menguji basis data dan jaringan.</p><p>2. Membuat dan menguji program.</p><p>3. Memasang dan menguji sistem baru.</p><p>4. Mengirim sistem baru ke dalam sistem lama.</p><p><strong>Penjelasan:</strong></p><p>Ada 4 tahap dalam implementasi sistem, yaitu membuat dan menguji basis data dan jaringan</p><p></p><p>1. Membuat dan menguji basis data dan jaringan.</p><p>Penerapan sistem yang baru atau perbaikan sistem dibuat pada basis data dan jaringan yang telah ada. Jika penerapan sistem yang baru memerlukan basis data dan jaringan yang baru atau dimodifikasi, sistem yang baru ini biasanya harus diimplementasikan sebelum pemasangan program komputer.</p><p></p><p>2. Membuat dan menguji program.</p><p>Merupakan tahap pertama untuk siklus pengembangan sistem yang spesifik bagi programer. Bertujuan untuk mengembangkan rencana yang lebih terperinci dalam pengembangan dan pengujian program komputer yang baru.</p><p></p><p>3. Memasang dan menguji sistem baru.</p><p>Tahap ini dilakukan untuk menyakinkan bahwa kebutuhan sistem lama terpenuhi pada sistem baru.</p><p></p><p>4. Mengirim sistem baru ke dalam sistem lama.</p><p>Tujuan tahap ini adalah untuk mengubah secara perlahan-lahan sistem lama menjadi sistem baru.</p><p>Jawaban:</p><p>Pengertian Database</p><p>Database adalah kumpulan data yang ada didalam komputer secara sistematis, hal ini dapat dilihat menggunakan sebuah aplikasi komputer untuk mendapatkan data dari basis data tersebut.</p><p></p><p>Jika diartikan secara umum Database adalah sistem penyimpanan data yang mana data yang sudah banyak dimasukkan (input) dalam sebuah sistem penyimpanan. Sistem database banyak digunakan dalam berbagai bidang, contohnya bidang teknologi, perusahaan dari yang kecil hingga besar, perkantoran, universitas, supermarket, dan perumahan. '</p><p></p><p>Baca Juga: Pengertian WWW (World Wide Web) beserta Sejarahnya</p><p></p><p>Fungsi Database</p><p>Adapun fungsi dari basis data sebagai berikut.</p><p>Mengelompokkan data untuk mempermudah identifikasi data. Database mempersiapkan data yang sesuai dengan request pengguna terhadap suatu informasi berupa data dengan dengan cepat dan akurat. Menggunakan aplikasi Database Management Systems (DBMS) siswa atau petugas sekolah dapat mencari profil informasi pembayaran spp dalam hitungan detik, DBMS akan menampilkan data lengkap mengenai informasi yang diminta.</p><p>Menghindari adanya Duplikasi data dan inkonsistensi data. Aplikasi DBMS sebagai software untuk menjalankan database komputer mempunyai kemampuan menginformasikan kepada user/pengguna pada saat kita input data apabila data yang akan dimasukkan sudah ada dalam database. Duplikat data dalam database sangat memungkinkan, karena database dapat diakses dari banyak komputer dari berbagai tempat yang terkoneksi ke program database.</p><p>Memudahkan dalam mengedit, menghapus, menyimpan, memasukkan dan mengakses data. </p><p>Menjadi sebuah solusi dalam proses penyimpanan sebuah data, terutama data yang memiliki ukuran besar.</p><p>Mendukung aplikasi yang membutuhkan ruang penyimpanan. Hampir semua aplikasi modern membutuhkan kapasitas yang besar untuk menjalankan program secara optimal, disini peran database sebagai penyedia  ruang untuk menyimpan data-data aplikasi dan sistem sebuah komputer.</p><p>Baca Juga: Pengertian Internet Gateway : Fungsi, dan Cara Kerjanya</p><p></p><p>Komponen Database</p><p>Adapun komponen-komponen dari database sebagai berikut.</p><p></p><p>1. Perangkat Keras</p><p>Perangkat keras atau hardware yang umum digunakan adalah komputer, harddisk, memori sekunder offline (removable disk, fd),  dan perangkat komunikasi jaringan.</p><p></p><p>2. Sistem Operasi</p><p>Sistem operasi (OS) merupakan program yang dirancang untuk mengaktifkan sistem komputer dan mengendalikan seluruh sumber daya yang ada di dalamnya termasuk operasi-operasi dasar komputer. seperti Windows, Unix dan Linux.</p><p></p><p>3. Basis Data</p><p>Komponen adalah kumpulan data yang terhubung dengan baik, sehingga data tersebut mudah diakses, disimpan,  dan juga dapat dimanipulasi. Database data dapat terdiri dari beberapa basis data yang memiliki data masing-masing.</p><p></p><p>4. Database Management System atau DBMS</p><p>DBMS atau database management system merupakan sebuah aplikasi khusus yang digunakan untuk membuat dan juga mengelola database yang tersedia. Sistem ini berupa koleksi data dan set program yang dipakai untuk mengakses database tersebut.</p><p></p><p>DBMS merupakan software yang berperan dalam menyimpan, mengelola, dan mengambil data kembali. Adapun teknik yang digunakan sebagai penyeimbang adalah pengaman data, konsistensi data dan pengguna data bersama.</p><p></p><p>Contoh dari DBMS adalah MySql, Microsoft Access, Sybase, Oracle database, Borland-Interbasi, PostgreSQL, dll.</p><p></p><p>5. Pemakai atau User</p><p>User merupakan salah satu komponen database yang berkaitan secara langsung dengan database. Ada beberapa jenis user, antara lain: programmer, User mahir (casual user), user umum (end user), dan juga user khusus (specialized user)</p><p></p><p>6. Aplikasi atau Perangkat Lain</p><p>Software ini tergantung kebutuhan pemakai database dibuatkan program khusus untuk melakukan pengeditan, pengisian atau pengambilan data yang mudah dalam pemakaiannya. Program tersebut ada yang tersedia langsung dalam DBMS atau dibuat memakai aplikasi lain seperti misalnya Visual Basic.</p><p></p><p>Contoh Database</p><p>Adapun contoh dari database sebagai berikut.</p><p>Contoh Database</p><p>Apabila dinyatakan dalam bentuk skema, sebagai berikut.</p><p>Contoh Database</p><p>Baca Juga: Pengertian Internet dan Intranet : Fungsi, Perbedaan, dan Manfaatnya</p><p></p><p>Kesimpulan</p><p>Jadi Database adalah kumpulan data yang ada didalam komputer secara sistematis, hal ini dapat dilihat menggunakan sebuah aplikasi komputer untuk mendapatkan data dari basis data tersebut. secara umum Database adalah sistem penyimpanan data yang mana data yang sudah banyak dimasukkan (input) dalam sebuah sistem penyimpanan. </p><br />
+                                            <h2 class="ez-toc-section" id="sistem-operasi-berbasis-gui-dibawah-ini-kecuali-a-appleb-mikrotik-c-macintosh-d-windows-e-ubuntu-%e2%80%8b">
+                            21. Sistem Operasi berbasis GUI dibawah ini kecuali.. A. AppleB. Mikrotik C. Macintosh D. Windows E. Ubuntu ​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>B. Mikrotik</p><p>maaf klo salah</p><p><strong></strong></p><p></p><br />
+                                            <h2 class="ez-toc-section" id="apakah-boleh-kita-menginstall-mysql-lagi-ketika-komputer-telah-terinstal-webserver-wamp">
+                            22. apakah boleh kita menginstall mysql lagi ketika komputer telah terinstal webserver wamp?</h2><br />
+                        kalau bisa untuk menghemat tempat uninstall webserver wamp<br />baru menginstall my sql<br /><br />semoga membantu :)<br />
+                                            <h2 class="ez-toc-section" id="jelaskan-hakikat-paradigma-pembangunan-berbasis-pancasila-sertakan-contohnya">
+                            23. Jelaskan hakikat paradigma pembangunan berbasis pancasila? sertakan contohnya?</h2><br />
+                        <p><strong>Pancasila sebagai paradigma</strong><strong> </strong>artinya nilai-nilai dasar pancasila secara normatif menjadi dasar, kerangka acuan, dan tolok ukur segenap aspek pembangunan nasional yang dijalankan di Indonesia. </p><p></p><p><strong>Contoh dari Pancasila Sebagai Paradigma Pembangunan</strong> Nasional Bidang Politik. Indonesia telah menerapkan sistem politik demokrasi sejak awal pembentukan Negara Kesatuan Republik Indonesia. ... Nilai kerakyatan tersebut juga sesuai dengan sila ke empat dari Pancasila.</p><p></p><p></p><br />
+                                            <h2 class="ez-toc-section" id="contoh-studi-pendahuluan-di-dalam-rancangan-penelitian">
+                            24. contoh studi pendahuluan di dalam rancangan penelitian </h2><br />
+                        dalam studi pendahuluan yang harus dibuat pertama kali adalah latar belakang, yaitu alasan mengapa suatu permasalahan tersebut layak untuk diteliti, setelah itu membuat rumusan masalah yaitu pokok permasalahan yang akan dibahas di dalam rancangan penelitian tersebut kemudian membuat tujuan dan manfaat dari adanya penelitian tersebut.<br /><br />
+                                            <h2 class="ez-toc-section" id="langkah-langkah-membuat-localhost-webserver">
+                            25. Langkah langkah membuat localhost webserver</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>localhest webseries itu apa?? </p><br />
+                                            <h2 class="ez-toc-section" id="apa-yang-dimaksud-dengan-pembangunan-berbasis-darat-dan-pembangunan-berbasis-laut">
+                            26. Apa yang dimaksud dengan pembangunan berbasis darat dan pembangunan berbasis laut? </h2><br />
+                        <p>Kelas              : XI</p>
+
+<p>Pelajaran       : Ppkn</p>
+
+<p>Kategori         : Pembangunan Indonesia</p>
+
+<p>Kata Kunci    : Pembangunan Berbasis Darat, Pembangunan
+Berbasis Laut, Pengertian, Penjelasan, Contoh Nyata.</p>
+
+<p>Kode               : -</p>
+
+<p> </p>
+
+<p>Pembahasaan :</p>
+
+<p>            Indonesia merupakan
+Negara Kepulauan terbesar di Dunia dengan total luas daratan 1.904.569
+km² dan luas lautan 96.079,15 km². Dengan luas laut dan
+daratan yang sangat luar biasa ini, menjadikan negara Indonesia sangat kaya
+akan potensi SDA darat dan SDA lautnya.</p>
+
+<p>            Kelimpahan Sumber Daya
+Alam ini, apabila tidak diimbangi dengan pembangunan yang tepat, akan
+menjadikannya terbengkalai bahkan disalahgunakan oleh Negara lain. </p>
+
+<p>            Pembangunan ini dapat
+berbasis darat maupun berbasis laut. Maksudnya ialah, <strong>pembangunan berbasis
+darat berarti segala jenis pembangunan baik dari segi pembangunan ekonomi,
+pembangunan teknologi, pembangunan transportasi, pembangunan infrastruktur, dsb
+difokuskan untuk memenuhi kapasitas kebutuhan darat, begitu juga sebaliknya
+dengan pembangunan berbasis laut.</strong></p><p><br /></p>
+
+<p>            Contoh Pembangunan
+Berbasis Darat :</p>
+
+<p>a.   
+Pembangunan Jalan Tol, Gedung, Sekolah,
+Jembatan, dsb.</p>
+
+<p>b.   
+Pengalokasian APBN terhadap pembangunan
+berbasis darat.</p>
+
+<p>c.   
+Penambahan senjata dan kendaraan TNI AD, dsb.</p><p><br /></p>
+
+<p>            Contoh Pembangunan
+Berbasis Laut :</p>
+
+<p>a.   
+Pembangunan Industri pengolahan Ikan.</p>
+
+<p>b.   
+Pembangunan pertambangan lepas pantai.</p>
+
+<p>c.   
+Peningkatan mutu dan kualitas wisata bahari,
+dsb.</p>
+
+<p> </p>
+
+<p>            Pembangunan berbasis darat dan laut perlu
+diseimbangkan. Paradigma pemerintah dari dulu ialah mengutamakan pembangunan
+berbasis darat. Hal ini tentu akan menjadikan masyarakat Indonesia yang
+berkecimpung pada wilayah lautan, tidak akan merasakan kekayaan Negaranya
+secara optimal.</p><br />
+                                            <h2 class="ez-toc-section" id="ubuntu-merupakan-contoh">
+                            27. ubuntu merupakan contoh</h2><br />
+                        sistem operasi yang berbasis open sourcesistem operasi open source.....<br />
+                                            <h2 class="ez-toc-section" id="tentukan-perbedaan-langkah-langkah-pada-instalasi-sistem-operasi-ubuntu-server-berbasis-gui-dan-teks-cli">
+                            28. tentukan perbedaan langkah-langkah pada instalasi sistem operasi ubuntu server berbasis GUI dan teks (CLI)</h2><br />
+                        Apabila di Langkah Instalasi Debian berbasis GUI (Graphical User Interface), maka yang dipilih ialah Graphic Install.<br />Dan apabila pada Langkah Instalasi Debian berbasis teks/CLI (Command Line Interface), maka yang dipilih ialah Install.<br />
+                                            <h2 class="ez-toc-section" id="program-apa-saja-yang-di-ciptakan-linux-selain-ubuntu-dan-apakah-semua-tampilannya-berbeda-dengan-ubuntu">
+                            29. program apa saja yang di ciptakan linux selain ubuntu dan apakah semua tampilannya berbeda dengan ubuntu</h2><br />
+                        Pertanyaannya agak aneh tapi saya  akan sedikit jelaskan kronologi ttg linux : Linux itu awalnya dibuat oleh Linus Torvald namun dia membuat OS ini untuk kepentingan open source alias agak charity motivenya, apa artinya? artinya Linux boleh dikembangkan oleh siapa saja di komunitas open source untuk kepentingan bisnis ataupun pembelajaran, namun apapun kepentigannya source corenya klo dimodifikasi harus di share ke publik tidak boleh dipatenkan sendiri itu makanya ada license GPL.<br /><br />Terkait dengan pertanyaan diatas klo dimaksud penanya Linux sebagai pembuat(korporasi atau pemegang hak cipta) linu tidaklah seperti itu, linux hanyalah OS yg dibebaskan oleh pembuatnya (Penjelasan lihat diatas)<br /><br />Tapi saya akan berasumsi terhadap pertanyaan kamu, mungkin maaksud pertanyaannya OS Linux apa saja yg dibuat dari core Linux<br /><br />jawaban saya klo dari komunitas debian mereka mengembangkan Open Suse, Ubuntu dll, kemudian ada juga red hat,yg clone GPL-nya Centos, terus apakah semua tampilannya berbeda, jawaban ya berbeda bukan hanya tampilan tujuan pembuatannyapun berbeda. Mudah2an jawaban saya dapat membantu<br />
+                                            <h2 class="ez-toc-section" id="13-kebangkitan-ekonomi-kelautan-di-indonesia-di-tandai-dengan-perubahan-paradigma-pembangunannasional-adapun-perubahan-paradigma-tersebut-adalah-perubahan-a-pembangunan-nasional-berbasis-lautan">
+                            30. 13. Kebangkitan ekonomi kelautan di Indonesia di tandai dengan perubahan paradigma pembangunannasional. Adapun perubahan paradigma tersebut adalah perubahan ....A. pembangunan nasional berbasis lautan menjadi pembangunan berbasis daratanB. pembangunan Nasional berbasis daratan tetap difokuskan pembangunan berbasis daratanC. pembangunan Nasional berbasis daratan menjadi pembangunan berbasis pegunungan yangbertujuan meningkatkan pariwisataD. pembangunan Nasional berbasis daratan menjadi pembangunan berbasis kelautan​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>d</p><p></p><p><strong>Penjelasan:</strong></p><p>tidak ada .............</p><p></p><br />
+                                            <h2 class="ez-toc-section" id="merancang-desain-kegiatan-berbasis-proyek">
+                            31. merancang desain kegiatan berbasis proyek</h2><br />
+                        busana atau pakaian<br />maaf kalo salah<br />
+                                            <h2 class="ez-toc-section" id="sebutkan-2-contoh-rancangan-produk-kerajinan-berbasis-media-campuran-%e2%80%8b">
+                            32. sebutkan 2 contoh rancangan produk kerajinan berbasis media campuran ​</h2><br />
+                        <p>Contoh dari rancangan produk <strong>kerajinan berbasis media campuran</strong> yaitu: </p>Kerajinan berupa wayang seperti contohnya wayang golek, wayang kulit dan wayang suket.Kerajinan berupa aksesoris seperti contohnya Manik-manik, Bando dan Bros.Kerajinan berupa cinderamata seperti contohnya gantungan kunci dan bolpoin.Pembahasan <p><strong>Kerajinan berbasis media campuran</strong> adalah suatu bentuk atau jenis dari kerajinan yang terbuat dari lebih 1 bahan utama dan juga merubah sebuah bentuk dari suatu kerajinan. Faktor yang membuat pengrajin membuat kerajinan berbasis media campuran ​antara lain yaitu: </p>Pengrajin membuat kerajinan berbasis media campuran ​karena kurangnya bahan baku utama yang dibutuhkan dalam membuat kerajinan. Pengrajin membuat kerajinan berbasis media campuran ​karena dengan tujuan untuk menghindarkan karya yang dihasilkan dari bentuk-bentuk monoton yang terlihat biasa dan kurang menarik.Pengrajin membuat kerajinan berbasis media campuran ​karena untuk meningkatkan nilai keindahan atau estetika karya kerajinan.Pelajari lebih lanjut Materi tentang kerajinan berbasis media campuran https://brainly.co.id/tugas/20312096Materi tentang kerajinan berbasis media campuran https://brainly.co.id/tugas/21427951Materi tentang kerajinan berbasis media campuran https://brainly.co.id/tugas/27377939Detil jawaban<p>Kelas: 8 SMP</p><p>Mapel: Wirausaha</p><p>Bab: Jenis-jenis kerajinan berdasarkan media</p><p>Kode: - </p><p></p><p>#TingkatkanPrestasimu #SPJ3</p><br />
+                                            <h2 class="ez-toc-section" id="tentukan-perbedaan-langkah-langkah-pada-instalasi-sistem-operasi-ubuntu-server-berbasis-gui-dan-teks-cli">
+                            33. tentukan perbedaan langkah langkah pada instalasi sistem operasi ubuntu server berbasis gui dan teks cli</h2><br />
+                        gui &gt; grapik (gambar gambar/ icon)<br />cli &gt; teks dan lebih jelas.<br />maaf jika salah<br />
+                                            <h2 class="ez-toc-section" id="berikan-pendapat-kalian-dari-hasil-proses-instalasi-ubuntu-server-berbasis-gui-dan-cli-yang-dilakukan-manakah-yang-lebih-baik">
+                            34. Berikan pendapat kalian dari hasil proses instalasi ubuntu server berbasis GUI dan CLI yang dilakukan manakah yang lebih baik?</h2><br />
+                        kalau saya sendiri tergantung dari spesifikasi komputernya, jika berspesifikasi tinggi kemungkinan lebih cepat waktu installnya dan lebih baik jalannya dari versi GUI ataupun CLI<br /><br />mohon maaf jika salah, Terima Kasih :)<br />
+                                            <h2 class="ez-toc-section" id="rancangan-teknologi-pendidikan-berbasis-perpustakaan">
+                            35. Rancangan Teknologi Pendidikan berbasis Perpustakaan</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>google.com</p><p>Teknologi informasi perpustakaan</p><p>Wahyu Supriyanto, Ahmad Muhsin</p><p>Kanisius, 2008</p><p>Buku ini ditulis bermula dari keinginan Wahyu (penulis I) seorang pustakawan dan trainer otomasi perpustakaan yang menjabat sebagai Kepala Bidang Jaringan dan Database UPU Perpustakaan UGM. Kesehariannnya yang bergelut di dunia perpustakaan memberikan inspirasi dan niat untuk mengembangkan perpustakaan menjadi lebih baik dan modern. Pertemuannya dengan Muhsin (penulis II) seorang aktor IT menjadikan sebuah kolaborasi sinergis untuk mewujudkan visi tersebut dengan bersamasama melahirkan kehadiran" Digital Library" di Indonesia. Buku ini mengisahkan perjalanan yang harus ditempuh oleh instansi maupun sekolah untuk membentuk sebuah" Digital Library" sebutan bagi perpustakaan digital." Digital Library" merupakan perpustakaan yang di dalamnya disentuh dengan kecanggihan Teknologi Informasi. Pemanfaatan Teknologi Informasi dalam perpustakaan memiliki peran untuk mengotomatiskan kinerja dari layanan perpustakaan. Dengan penerapan TI pustakawan dan pengguna diharapkan semakin cepat dalam mengakses berbagai layanan perpustakaan seperti pencarian katalog, pendaftaran anggota, peminjaman, pengembalian, perekapan dan pembuatan laporan. Pembaca akan kami ajak untuk berkenalan dengan TI berserta pemanfaatannya, penggunaan TI dalam perpustakaan, otomasi perpustakaan, proses digitalisasi, contoh aplikasi TI di perpustakaan, perkembangan perpustakaan, dan analisis perkembangan perpustakaan dimasa yang akan datang. Setelah menyelesaikan membaca buku ini, kami berharap pembaca memiliki gambaran yang jelas tentang perpustakaan digital. Gambaran yang</p><br />
+                                            <h2 class="ez-toc-section" id="bagaimana-rancang-bangun-jaringan-berbasis-kabel-dan-nirkabel-dalam-jaringan-vlan-dan-rauting-tolong-jawab-ya-kak-besok-mau-dikumpul%e2%80%8b">
+                            36. Bagaimana rancang bangun jaringan berbasis kabel Dan nirkabel dalam jaringan VLAN Dan rauting? Tolong jawab ya kak besok mau dikumpul​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p></p><p><strong>Penjelasan: Rancang Bangun Wireless Local Area Network dengan Mode Ad-Hoc / Independent Basic Service Set Berbasis Standar Hery Oktafiandi 1) Winarnie 2) Dwi Anto Pungguh Widodo 3) Program Studi Teknik Informatika Politeknik Sawunggalih Aji, Jawa Tengah 1) Jl. Wismo Aji No.08 Kutoarjo, Purworejo Telepon (0275) Get-Link Research and Development, Jawa Tengah 2) Jl. Dr.Setiabudi no 38, Purworejo Telepon SMAN 10 Purworejo, Jawa Tengah 3) Kalikotes Pituruh, Purworejo 1) Abstrak Perkembangan teknologi informasi dengan memanfaatkan internet semakin memperbesar peluang pengembangan teknologi wireless untuk menjangkau semua area yang dicakupnya. Teknologi point-to-point atau yang biasa disebut dengan Wireless ad-hoc dapat menjembatani kebutuhan akan semakin besarnya user yang berbanding lurus dengan semakin luasnya area. Sebuah konfigurasi ad-hoc merupakan analogi dari jaringan dimana tidak ada node didalamnya yang berfungsi sebagai server sehingga user dapat berkomunikasi secara langsung karena berbasis peer-to-peer. Dengan menambahkan routing protocol reaktif OLSR (Optimized Link State Routing) dan membentuk topologi mesh penuh atau hanya sebagian saja, maka mode ad-hoc dapat diimplementasikan. Kata Kunci : Wireless LAN, ad-hoc, OLSR Pendahuluan Pesatnya perkembangan teknologi wireless seiring dengan semakin tingginya tingkat pengguna layanan internet yang dapat diakses baik itu melalui personal computer maupun laptop. Gadget pada saat ini juga tidak ketinggalan untuk terus meningkatkan fitur akses internet wireless. Dengan kelebihan pada mobilitas dan tingkat realibilitas yang tinggi, menjadikan teknologi wireless semakin menjadi pilihan dan solusi dalam memenuhi kebutuhan pengguna terhadap informasi layanan internet. Jaringan wireless dapat dibagi menjadi dua yaitu point-to-multipoint atau yang lebih sering disebut dengan mode infrastructure dan point-to-point. Mode infrastructure merupakan mode yang menggunakan sebuah access point (AP) yang dapat memungkinkan banyak client yang dapat mengakses AP. Untuk memperluas area cakupan maka dapat ditambahkan dua atau lebih AP secara wireless maupun dengan kabel. Mode point-to-pont atau ad-hoc pada awalnya hanya dapat menghubungkan antar dua point saja. Dengan menggunakan routing protocol,teknologi ini mampu dimanfaatkan untuk melakukan distribusi antar node. Dibandingkan dengan mode infrastructure yang membutuhkan dana untuk pengembangan infrastruktur yang lebih besar karena setiap koneksi node dibutuhkan sebuah penghubung yang berfungsi sebagai layaknya base station, maka dengan mode ad-hoc setiap koneksi node bisa dikembangkan dengan menggunakan routing protocol yang biasa dipakai pada Wireless Mesh Network topologi ad-hoc. Routing protocol yang diimlementasikan pada mode Ad-hoc (1) dapat dikelompokkan menjadi 3 tipe, yaitu: a. Proaktif : Better Approach To Mobile Approach To Mobile Ad-Hoc Networking (B.A.T.M.A.N), Optimized Link State Routing Protocol (OLSR). b. Reaktif : Ad Hoc On-Demand (AODV) 45</strong></p><p></p><br />
+                                            <h2 class="ez-toc-section" id="cara-membuat-rancangan-penilaian-berbasis-kelas">
+                            37. cara membuat rancangan penilaian berbasis kelas?</h2><br />
+                        Prinsip Berbasis Kelas<br /><br />
+– Umpan balik bagi siswa dalam mengetahui kemampuan dan kekurangannya 
+sehingga menimbulkan motivasi untuk memperbaiki hasil belajarnya.<br />
+– Memantau kemajuan dan mendiagnosis kemampuan belajar siswa sehingga 
+memungkinkan dilakukannya pengayaan dan remidiasi untuk memenuhi 
+kebutuhan siswa sesuai dengan kemajuan dan kemampuannya<br />
+– Memberikan masukan kepada guru untuk memperbaiki program pembelajarannya di kelas.<br />
+– Memungkinkan siswa mencapai kompetensi yang telah ditentukan walaupun dengan kecepatan belajar yang berbeda-beda.<br /><br />
+                                            <h2 class="ez-toc-section" id="tuliskan-suatu-rancangan-kerajinan-berbasis-media-campuran%e2%80%8b">
+                            38. Tuliskan suatu rancangan kerajinan berbasis media campuran​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Kerajinan berbasis media campuran adalah kerajinan yang membutuhkan dua atau lebih bahan dasar atau bahan tambahan lainnya untuk membuatnya. Contohnya seperti kerajinan patung kayu yang bagian bawah atau tatakannya menggunakan logam atau kerajinan cincin batu yang lingkaran cincinnya terbuat dari kayu.
+</p><p>
+</p><p>Perpaduan bahan-bahan tersebut dilakukan agar menghemat biaya produksi namun membuat hasil lebih elegan dan kekinian. Setiap bahan memiliki karakteristik masing-masing, dan dengan menggabungkannya kita bisa menciptakan karya yang tidak monoton dan keunikan rupa. Namun, perlu diingat bahwa dengan karakteristik yang berbeda, kita juga perlu memahami masing-masing bahan dan bagaimana memroses serta memadukannya. Jika kurang pengetahuan baik secara teori dan praktik, alhasil karyanya bisa kurang maksimal bahkan gagal dibentuk.
+</p><p>
+</p><p></p><br />
+                                            <h2 class="ez-toc-section" id="yang-dimaksud-dengan-merancang-basis-data-adalaha-merancang-program-untuk-system-basis-data-b-merancang-dbms-dalam-system-basis-data-c-merancang-program-untuk-basis-data-d-merancang-file-un">
+                            39. Yang dimaksud dengan merancang basis data adalah?
+A. Merancang program untuk system basis data.
+B . Merancang DBMS dalam system basis data.
+C . Merancang program untuk basis data.
+D. Merancang file untuk basis data.</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>A. Merancang program untuk system basis data</p><p><strong>Penjelasan:</strong></p><p>semoga membantu ya</p><br />
+                                            <h2 class="ez-toc-section" id="apa-perbedaan-langkah-langkah-pada-instalasi-sistem-operasi-ubuntu-server-berbasis-gui-dan-tekscli">
+                            40. Apa perbedaan langkah langkah pada instalasi sistem operasi ubuntu server berbasis GUI dan teks(CLI)?</h2><br />
+                        kalau menurut saya perbedaannya pada lama waktu menginstallnya, karena lama waktu mengintstal Ubuntu versi GUI lebih lama dari versi CLI dikisaran 30 menit untuk GUI dan 10 menit untuk CLI alasannya karena untuk GUI dia akan membuka file yg lebih banyak seperti kita menginstall Windows ketimbang CLI makanya GUI lebih lama di waktu installnya dibanding CLI<br /><br />mohon maaf jika salah, Terima Kasih :)<br />
+                    
+                </div>
+                <div class="youtubeVideo" style="text-align: center">
+                    <h3>Video Terkait</h3>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/GjVwsgL2i98?controls=0" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"allowfullscreen></iframe>
+                </div>
+                <footer class="entry-meta" aria-label="Meta postingan">
+                    <span class="cat-links"><span class="gp-icon icon-categories"><svg viewBox="0 0 512 512"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+                                <path
+                                    d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z">
+                                </path>
+                            </svg></span><span class="screen-reader-text">Kategori </span>ti</span>
+            </div>
+        </article>
+    </main>
+            </div>
+            <div class="widget-area sidebar is-right-sidebar" id="right-sidebar">
+                <div class="inside-right-sidebar">
+                    <aside id="categories-2" class="widget inner-padding widget_categories">
+                        <h2 class="widget-title">Topik</h2>
+                        <ul>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-hasil-wawancara-anak-kuliahan.html">Contoh Makalah Hasil Wawancara Anak Kuliahan</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-backdrop.html">Contoh Latar Belakang Backdrop</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kata-pengantar-laporan-rumah-sakit.html">Contoh Kata Pengantar Laporan Rumah Sakit</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-laporan-data-barang.html">Contoh Latar Belakang Laporan Data Barang</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-daftar-pustaka-makalah-pajak.html">Contoh Daftar Pustaka Makalah Pajak</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-sanitasi-dan-hygiene.html">Contoh Makalah Sanitasi Dan Hygiene</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-daftar-isi-makalah-bahasa-sunda.html">Contoh Daftar Isi Makalah Bahasa Sunda</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-cover-depan-makalah-uin-ar-raniry.html">Contoh Cover Depan Makalah Uin Ar raniry</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-pendahuluan-latar-belakang-rumusan-masalah-tujuan-penelitian.html">Contoh Pendahuluan Latar Belakang Rumusan Masalah Tujuan Penelitian</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-pendahuluan-dalam-legal-opinion.html">Contoh Pendahuluan Dalam Legal Opinion</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-gambaran-skripsi-mop.html">Contoh Latar Belakang Gambaran Skripsi Mop</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kalimat-latar-belakang-masalah.html">Contoh Kalimat Latar Belakang Masalah</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-biologi-tentang-penelitian-pertumbuhan-cabai.html">Contoh Makalah Biologi Tentang Penelitian Pertumbuhan Cabai</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kata-pengantar-lpj-uas.html">Contoh Kata Pengantar Lpj Uas</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-disintegrasi.html">Contoh Makalah Disintegrasi</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-bioinformatika.html">Contoh Makalah Bioinformatika</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-bab-i-dalam-makalah-internet.html">Contoh Bab I Dalam Makalah Internet</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kata-pengantar-makalah-seni-budaya-tentang-aliran.html">Contoh Kata Pengantar Makalah Seni Budaya Tentang Aliran</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-brt.html">Contoh Makalah Brt</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-pada-disminore.html">Contoh Latar Belakang Pada Disminore</a>
+                                </li>
+                                                    </ul>
+
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="site-footer">
+        <footer class="site-info" aria-label="Situs" itemtype="https://schema.org/WPFooter" itemscope>
+            <div class="inside-site-info grid-container">
+                <div class="copyright-bar">
+                    <span class="copyright">&copy; 2023 <a href="https://materimakalah.github.io"
+                            itemprop="url">BELAJAR</a></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <a title="Gulirkan kembali ke puncak laman" aria-label="Gulirkan kembali ke puncak laman" rel="nofollow"
+        href="#" class="generate-back-to-top" data-scroll-speed="400" data-start-scroll="300">
+        <span class="gp-icon icon-arrow-up"><svg viewBox="0 0 330 512" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd"
+                clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+                <path
+                    d="M305.863 314.916c0 2.266-1.133 4.815-2.832 6.514l-14.157 14.163c-1.699 1.7-3.964 2.832-6.513 2.832-2.265 0-4.813-1.133-6.512-2.832L164.572 224.276 53.295 335.593c-1.699 1.7-4.247 2.832-6.512 2.832-2.265 0-4.814-1.133-6.513-2.832L26.113 321.43c-1.699-1.7-2.831-4.248-2.831-6.514s1.132-4.816 2.831-6.515L158.06 176.408c1.699-1.7 4.247-2.833 6.512-2.833 2.265 0 4.814 1.133 6.513 2.833L303.03 308.4c1.7 1.7 2.832 4.249 2.832 6.515z"
+                    fill-rule="nonzero" />
+            </svg></span>
+    </a>
+    <script id="generate-a11y">
+        ! function() {
+            "use strict";
+            if ("querySelector" in document && "addEventListener" in window) {
+                var e = document.body;
+                e.addEventListener("mousedown", function() {
+                    e.classList.add("using-mouse")
+                }), e.addEventListener("keydown", function() {
+                    e.classList.remove("using-mouse")
+                })
+            }
+        }();
+    </script>
+    <!--[if lte IE 11]>
+<script src='https://materimakalah.github.io/js/classList.min.js' ?ver=3.2.4' id='generate-classlist-js'></script>
+<![endif]-->
+    <script id='generate-menu-js-extra'>
+        var generatepressMenu = {
+            "toggleOpenedSubMenus": "1",
+            "openSubMenuLabel": "Buka Submenu",
+            "closeSubMenuLabel": "Tutup submenu"
+        };
+    </script>
+    <script src='https://materimakalah.github.io/js/menu.min.js' ?ver=3.2.4' id='generate-menu-js'></script>
+    <script id='generate-navigation-search-js-extra'>
+        var generatepressNavSearch = {
+            "open": "Buka Kolom Pencarian",
+            "close": "Tutup Kolom Pencarian"
+        };
+    </script>
+    <script src='https://materimakalah.github.io/js/navigation-search.min.js' ?ver=3.2.4' id='generate-navigation-search-js'></script>
+    <script id='generate-back-to-top-js-extra'>
+        var generatepressBackToTop = {
+            "smooth": "1"
+        };
+    </script>
+    <script src='https://materimakalah.github.io/js/back-to-top.min.js' ?ver=3.2.4' id='generate-back-to-top-js'></script>
+<script type='text/javascript' src='//cloudlessmajesty.com/1d/a7/d8/1da7d80839196eccc4a624ab91e5ccbf.js'></script>
+<script type='text/javascript' src='//cloudlessmajesty.com/8d/be/84/8dbe84c54b7cc5b78aa0e0a1fbdbae07.js'></script>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4777688,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4777688&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+</body>
+
+</html>

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="id" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv - BELAJAR</title>
+    <meta name="description" content="Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv, , , , , , , 0, , , , , , 0, contoh-laporan-latar-belakang-deteksi-objek-dengan-opencv, BELAJAR" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv - BELAJAR" />
+    <meta property="og:description" content="Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv, , , , , , , 0, , , , , , 0, contoh-laporan-latar-belakang-deteksi-objek-dengan-opencv, BELAJAR" />
+    <meta property="og:site_name" content="BELAJAR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv - BELAJAR" />
+    <meta name="twitter:description" content="Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv, , , , , , , 0, , , , , , 0, contoh-laporan-latar-belakang-deteksi-objek-dengan-opencv, BELAJAR" />
+    <link rel='stylesheet' id='generate-style-css' href='https://materimakalah.github.io/css/main.min.css'?ver=3.2.4'
+        media='all' />
+    <link rel='stylesheet' id='ez-toc-css' href='https://materimakalah.github.io/css/screen.min.css'?ver=2.0.40' media='all' />
+    <style id='generate-style-inline-css'>
+        body {
+            background-color: #f7f7f7;
+            color: #222222;
+        }
+
+        a {
+            color: #1e73be;
+        }
+
+        a:hover,
+        a:focus,
+        a:active {
+            color: #000000;
+        }
+
+        .wp-block-group__inner-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .generate-back-to-top {
+            font-size: 20px;
+            border-radius: 3px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            line-height: 40px;
+            width: 40px;
+            text-align: center;
+            z-index: 10;
+            transition: opacity 300ms ease-in-out;
+            opacity: 0.1;
+            transform: translateY(1000px);
+        }
+
+        .generate-back-to-top__show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navigation-search {
+            position: absolute;
+            left: -99999px;
+            pointer-events: none;
+            visibility: hidden;
+            z-index: 20;
+            width: 100%;
+            top: 0;
+            transition: opacity 100ms ease-in-out;
+            opacity: 0;
+        }
+
+        .navigation-search.nav-search-active {
+            left: 0;
+            right: 0;
+            pointer-events: auto;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .navigation-search input[type="search"] {
+            outline: 0;
+            border: 0;
+            vertical-align: bottom;
+            line-height: 1;
+            opacity: 0.9;
+            width: 100%;
+            z-index: 20;
+            border-radius: 0;
+            -webkit-appearance: none;
+            height: 60px;
+        }
+
+        .navigation-search input::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        .navigation-search input::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        .navigation-search input::-webkit-search-decoration,
+        .navigation-search input::-webkit-search-cancel-button,
+        .navigation-search input::-webkit-search-results-button,
+        .navigation-search input::-webkit-search-results-decoration {
+            display: none;
+        }
+
+        .gen-sidebar-nav .navigation-search {
+            top: auto;
+            bottom: 0;
+        }
+
+        :root {
+            --contrast: #222222;
+            --contrast-2: #575760;
+            --contrast-3: #b2b2be;
+            --base: #f0f0f0;
+            --base-2: #f7f8f9;
+            --base-3: #ffffff;
+            --accent: #1e73be;
+        }
+
+        .has-contrast-color {
+            color: var(--contrast);
+        }
+
+        .has-contrast-background-color {
+            background-color: var(--contrast);
+        }
+
+        .has-contrast-2-color {
+            color: var(--contrast-2);
+        }
+
+        .has-contrast-2-background-color {
+            background-color: var(--contrast-2);
+        }
+
+        .has-contrast-3-color {
+            color: var(--contrast-3);
+        }
+
+        .has-contrast-3-background-color {
+            background-color: var(--contrast-3);
+        }
+
+        .has-base-color {
+            color: var(--base);
+        }
+
+        .has-base-background-color {
+            background-color: var(--base);
+        }
+
+        .has-base-2-color {
+            color: var(--base-2);
+        }
+
+        .has-base-2-background-color {
+            background-color: var(--base-2);
+        }
+
+        .has-base-3-color {
+            color: var(--base-3);
+        }
+
+        .has-base-3-background-color {
+            background-color: var(--base-3);
+        }
+
+        .has-accent-color {
+            color: var(--accent);
+        }
+
+        .has-accent-background-color {
+            background-color: var(--accent);
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        .entry-content>[class*="wp-block-"]:not(:last-child) {
+            margin-bottom: 1.5em;
+        }
+
+        .main-navigation .main-nav ul ul li a {
+            font-size: 14px;
+        }
+
+        .sidebar .widget,
+        .footer-widgets .widget {
+            font-size: 17px;
+        }
+
+        @media (max-width:768px) {
+            h1 {
+                font-size: 31px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            h4 {
+                font-size: 22px;
+            }
+
+            h5 {
+                font-size: 19px;
+            }
+        }
+
+        .top-bar {
+            background-color: #636363;
+            color: #ffffff;
+        }
+
+        .top-bar a {
+            color: #ffffff;
+        }
+
+        .top-bar a:hover {
+            color: #303030;
+        }
+
+        .site-header {
+            background-color: #ffffff;
+        }
+
+        .main-title a,
+        .main-title a:hover {
+            color: #222222;
+        }
+
+        .site-description {
+            color: #757575;
+        }
+
+        .main-navigation,
+        .main-navigation ul ul {
+            background-color: #ed4250;
+        }
+
+        .main-navigation .main-nav ul li a,
+        .main-navigation .menu-toggle,
+        .main-navigation .menu-bar-items {
+            color: #ffffff;
+        }
+
+        .main-navigation .main-nav ul li:not([class*="current-menu-"]):hover>a,
+        .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus>a,
+        .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"])>a,
+        .main-navigation .menu-bar-item:hover>a,
+        .main-navigation .menu-bar-item.sfHover>a {
+            color: #ffffff;
+            background-color: #c42f2f;
+        }
+
+        button.menu-toggle:hover,
+        button.menu-toggle:focus {
+            color: #ffffff;
+        }
+
+        .main-navigation .main-nav ul li[class*="current-menu-"]>a {
+            color: #ffffff;
+            background-color: #c42f2f;
+        }
+
+        .navigation-search input[type="search"],
+        .navigation-search input[type="search"]:active,
+        .navigation-search input[type="search"]:focus,
+        .main-navigation .main-nav ul li.search-item.active>a,
+        .main-navigation .menu-bar-items .search-item.active>a {
+            color: #ffffff;
+            background-color: #c42f2f;
+        }
+
+        .main-navigation ul ul {
+            background-color: #c42f2f;
+        }
+
+        .main-navigation .main-nav ul ul li a {
+            color: #ffffff;
+        }
+
+        .main-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover>a,
+        .main-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus>a,
+        .main-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"])>a {
+            color: #fcd9d6;
+            background-color: #c42f2f;
+        }
+
+        .main-navigation .main-nav ul ul li[class*="current-menu-"]>a {
+            color: #fcd9d6;
+            background-color: #c42f2f;
+        }
+
+        .separate-containers .inside-article,
+        .separate-containers .comments-area,
+        .separate-containers .page-header,
+        .one-container .container,
+        .separate-containers .paging-navigation,
+        .inside-page-header {
+            background-color: #ffffff;
+        }
+
+        .entry-title a {
+            color: #222222;
+        }
+
+        .entry-title a:hover {
+            color: #55555e;
+        }
+
+        .entry-meta {
+            color: #595959;
+        }
+
+        .sidebar .widget {
+            background-color: #ffffff;
+        }
+
+        .footer-widgets {
+            background-color: #ffffff;
+        }
+
+        .footer-widgets .widget-title {
+            color: #000000;
+        }
+
+        .site-info {
+            color: #ffffff;
+            background-color: #55555e;
+        }
+
+        .site-info a {
+            color: #ffffff;
+        }
+
+        .site-info a:hover {
+            color: #d3d3d3;
+        }
+
+        .footer-bar .widget_nav_menu .current-menu-item a {
+            color: #d3d3d3;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="password"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="number"],
+        textarea,
+        select {
+            color: #666666;
+            background-color: #fafafa;
+            border-color: #cccccc;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="password"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            color: #666666;
+            background-color: #ffffff;
+            border-color: #bfbfbf;
+        }
+
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        a.button,
+        a.wp-block-button__link:not(.has-background) {
+            color: #ffffff;
+            background-color: #55555e;
+        }
+
+        button:hover,
+        html input[type="button"]:hover,
+        input[type="reset"]:hover,
+        input[type="submit"]:hover,
+        a.button:hover,
+        button:focus,
+        html input[type="button"]:focus,
+        input[type="reset"]:focus,
+        input[type="submit"]:focus,
+        a.button:focus,
+        a.wp-block-button__link:not(.has-background):active,
+        a.wp-block-button__link:not(.has-background):focus,
+        a.wp-block-button__link:not(.has-background):hover {
+            color: #ffffff;
+            background-color: #3f4047;
+        }
+
+        a.generate-back-to-top {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+        }
+
+        a.generate-back-to-top:hover,
+        a.generate-back-to-top:focus {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+        }
+
+        @media (max-width:768px) {
+
+            .main-navigation .menu-bar-item:hover>a,
+            .main-navigation .menu-bar-item.sfHover>a {
+                background: none;
+                color: #ffffff;
+            }
+        }
+
+        .nav-below-header .main-navigation .inside-navigation.grid-container,
+        .nav-above-header .main-navigation .inside-navigation.grid-container {
+            padding: 0px 20px 0px 20px;
+        }
+
+        .site-main .wp-block-group__inner-container {
+            padding: 40px;
+        }
+
+        .separate-containers .paging-navigation {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .entry-content .alignwide,
+        body:not(.no-sidebar) .entry-content .alignfull {
+            margin-left: -40px;
+            width: calc(100% + 80px);
+            max-width: calc(100% + 80px);
+        }
+
+        .rtl .menu-item-has-children .dropdown-menu-toggle {
+            padding-left: 20px;
+        }
+
+        .rtl .main-navigation .main-nav ul li.menu-item-has-children>a {
+            padding-right: 20px;
+        }
+
+        @media (max-width:768px) {
+
+            .separate-containers .inside-article,
+            .separate-containers .comments-area,
+            .separate-containers .page-header,
+            .separate-containers .paging-navigation,
+            .one-container .site-content,
+            .inside-page-header {
+                padding: 30px;
+            }
+
+            .site-main .wp-block-group__inner-container {
+                padding: 30px;
+            }
+
+            .inside-top-bar {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+
+            .inside-header {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+
+            .widget-area .widget {
+                padding-top: 30px;
+                padding-right: 30px;
+                padding-bottom: 30px;
+                padding-left: 30px;
+            }
+
+            .footer-widgets-container {
+                padding-top: 30px;
+                padding-right: 30px;
+                padding-bottom: 30px;
+                padding-left: 30px;
+            }
+
+            .inside-site-info {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+
+            .entry-content .alignwide,
+            body:not(.no-sidebar) .entry-content .alignfull {
+                margin-left: -30px;
+                width: calc(100% + 60px);
+                max-width: calc(100% + 60px);
+            }
+
+            .one-container .site-main .paging-navigation {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* End cached CSS */
+        .is-right-sidebar {
+            width: 30%;
+        }
+
+        .is-left-sidebar {
+            width: 30%;
+        }
+
+        .site-content .content-area {
+            width: 70%;
+        }
+
+        @media (max-width:768px) {
+
+            .main-navigation .menu-toggle,
+            .sidebar-nav-mobile:not(#sticky-placeholder) {
+                display: block;
+            }
+
+            .main-navigation ul,
+            .gen-sidebar-nav,
+            .main-navigation:not(.slideout-navigation):not(.toggled) .main-nav>ul,
+            .has-inline-mobile-toggle #site-navigation .inside-navigation>*:not(.navigation-search):not(.main-nav) {
+                display: none;
+            }
+
+            .nav-align-right .inside-navigation,
+            .nav-align-center .inside-navigation {
+                justify-content: space-between;
+            }
+        }
+    </style>
+    <link rel="icon" href="https://materimakalah.github.io/img/cropped-soalbelajar-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://materimakalah.github.io/img/cropped-soalbelajar-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://materimakalah.github.io/img/cropped-soalbelajar-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://materimakalah.github.io/img/cropped-soalbelajar-270x270.png" />
+</head>
+
+<body
+    class="home blog wp-custom-logo wp-embed-responsive right-sidebar nav-above-header separate-containers nav-search-enabled nav-aligned-center header-aligned-center dropdown-hover"
+    itemtype="https://schema.org/Blog" itemscope>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-dark-grayscale">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 0.49803921568627" />
+                    <feFuncG type="table" tableValues="0 0.49803921568627" />
+                    <feFuncB type="table" tableValues="0 0.49803921568627" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-grayscale">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 1" />
+                    <feFuncG type="table" tableValues="0 1" />
+                    <feFuncB type="table" tableValues="0 1" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-yellow">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" />
+                    <feFuncG type="table" tableValues="0 1" />
+                    <feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-red">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 1" />
+                    <feFuncG type="table" tableValues="0 0.27843137254902" />
+                    <feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-midnight">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 0" />
+                    <feFuncG type="table" tableValues="0 0.64705882352941" />
+                    <feFuncB type="table" tableValues="0 1" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-magenta-yellow">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.78039215686275 1" />
+                    <feFuncG type="table" tableValues="0 0.94901960784314" />
+                    <feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-green">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" />
+                    <feFuncG type="table" tableValues="0 1" />
+                    <feFuncB type="table" tableValues="0.44705882352941 0.4" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+        role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-orange">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.098039215686275 1" />
+                    <feFuncG type="table" tableValues="0 0.66274509803922" />
+                    <feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" />
+                    <feFuncA type="table" tableValues="1 1" />
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><a class="screen-reader-text skip-link" href="#content" title="Langsung ke isi">Langsung ke isi</a>
+    <nav class="main-navigation nav-align-center has-menu-bar-items sub-menu-right" id="site-navigation"
+        aria-label="Utama" itemtype="https://schema.org/SiteNavigationElement" itemscope>
+        <div class="inside-navigation grid-container">
+            <form method="get" class="search-form navigation-search" action="/">
+                <input type="search" class="search-field" value="" name="q" title="Cari" />
+            </form> <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+                        <path
+                            d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z" />
+                    </svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="1em" height="1em">
+                        <path
+                            d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" />
+                    </svg></span><span class="mobile-menu">Menu</span> </button>
+            <div id="primary-menu" class="main-nav">
+                <ul id="menu-soal-belajar" class=" menu sf-menu">
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1"><a
+                            href="https://materimakalah.github.io">Home</a></li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2"><a
+                            href="https://materimakalah.github.io/page/dmca.html">DMCA</a></li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3"><a
+                            href="https://materimakalah.github.io/page/privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+                </ul>
+            </div>
+            <div class="menu-bar-items"><span class="menu-bar-item search-item"><a aria-label="Buka Kolom Pencarian"
+                        href="#"><span class="gp-icon icon-search"><svg viewBox="0 0 512 512"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z" />
+                            </svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                width="1em" height="1em">
+                                <path
+                                    d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" />
+                            </svg></span></a></span></div>
+        </div>
+    </nav>
+    <header class="site-header grid-container" id="masthead" aria-label="Situs"
+        itemtype="https://schema.org/WPHeader" itemscope>
+        <div class="inside-header grid-container">
+            <h1 class="site-logo">
+                <a href="https://materimakalah.github.io" rel="home"> BELAJAR</a>
+            </h1>
+        </div>
+    </header>
+
+    <div class="site grid-container container hfeed" id="page">
+        <div class="site-content" id="content">
+            <div class="content-area" id="primary">
+                    <main class="site-main" id="main">
+        <article id="post-1327" class="post-1327 post type-post status-publish format-standard hentry category-info"
+            itemtype="https://schema.org/CreativeWork" itemscope="">
+            <div class="inside-article">
+                <header class="entry-header" aria-label="Konten">
+                    <h1 class="entry-title" itemprop="headline">Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv</h1>
+                    <div class="entry-meta">
+                       <span
+                            class="byline">oleh <span class="author vcard" itemprop="author"
+                                itemtype="https://schema.org/Person" itemscope=""><span class="author-name"
+                                    itemprop="name">rendiandikaputp61g3g</span></span></span>
+                    </div>
+                </header>
+                <div class="entry-content" itemprop="text">
+                    <div style="text-align: center">
+                        <img src="https://tse1.mm.bing.net/th?q=Contoh+Laporan+Latar+Belakang+Deteksi+Objek+Dengan+Opencv" alt="Contoh Laporan Latar Belakang Deteksi Objek Dengan Opencv">
+                    </div>
+                    <p></p>
+                    <p>kenapa python tidak bisa menginstall opencv?​</p>
+                    <div id="ez-toc-container"
+                        class="ez-toc-v2_0_40 counter-hierarchy ez-toc-counter ez-toc-light-blue ez-toc-container-direction">
+                        <div class="ez-toc-title-container">
+                            <p class="ez-toc-title">Daftar Isi</p>
+                            <span class="ez-toc-title-toggle"><a href="#"
+                                    class="ez-toc-pull-right ez-toc-btn ez-toc-btn-xs ez-toc-btn-default ez-toc-toggle"
+                                    area-label="ez-toc-toggle-icon-1"><label for="item-63b392361c4a0"
+                                        aria-label="Table of Content"><span
+                                            style="display: flex;align-items: center;width: 35px;height: 30px;justify-content: center;direction:ltr;"><svg
+                                                style="fill: #999;color:#999" xmlns="http://www.w3.org/2000/svg"
+                                                class="list-377408" width="20px" height="20px" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path
+                                                    d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z"
+                                                    fill="currentColor"></path>
+                                            </svg><svg style="fill: #999;color:#999" class="arrow-unsorted-368013"
+                                                xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                                viewBox="0 0 24 24" version="1.2" baseProfile="tiny">
+                                                <path
+                                                    d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z">
+                                                </path>
+                                            </svg></span></label><input type="checkbox" id="item-63b392361c4a0"></a></span>
+                        </div>
+                        <nav>
+                            <ul class="ez-toc-list ez-toc-list-level-1 ">
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#kenapa-python-tidak-bisa-menginstall-opencv%e2%80%8b">1.
+                                            kenapa python tidak bisa menginstall opencv?​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#bagaimana-cara-mendeteksi-kekeliruan-dalam-laporan-keuangan%e2%80%8b">2.
+                                            bagaimana cara mendeteksi kekeliruan dalam laporan keuangan?​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#sensor-yang-digunakan-untuk-mendeteksi-objek-metal-tanpa-harus-menyentuhnya-adalah">3.
+                                            Sensor yang digunakan untuk mendeteksi objek metal tanpa harus menyentuhnya adalah ..</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#nama-sistem-yang-dimiliki-kelelawar-untuk-mendeteksi-keberadaan-objek%e2%80%8b">4.
+                                            Nama sistem yang dimiliki kelelawar untuk mendeteksi keberadaan objek?​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#makhluk-kecil-tidak-tidak-bertulang-belakang-yang-digunakan-mendeteksi-pencemaran-air-adalah">5.
+                                            makhluk kecil tidak tidak bertulang belakang yang digunakan mendeteksi pencemaran air adalah</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#perhatikan-beberapa-pemanfaatan-gelombang-1-mendeteksi-kecepatan-suatu-objek-di-sekeliling-kapal-2-mendeteksi-jenis-pesawat-terbang-3-menentukan-kecepatan-aliran-darah-4-mendeteksi-benda-benda-di">6.
+                                            Perhatikan beberapa pemanfaatan gelombang: 1) Mendeteksi kecepatan suatu objek di sekeliling kapal 2) Mendeteksi jenis pesawat terbang 3) Menentukan kecepatan aliran darah 4) Mendeteksi benda-benda di bawah laut Contoh pemanfaatan gelombang bunyi dalam kehidupan sehari-hari ditunjukkan oleh angka a 1) dan 2) b. 2) dan 3)  c. 2) dan 4)  d. 3) dan 4)​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#radar-merupakan-singkatan-dari-radio-detectiona-and-rangingyang-berarti-mendeteksi-dan-menentukan-jarak-objek-berdasarkan-%e2%80%8b">7.
+                                            radar merupakan singkatan dari radio detectiona and ranging,yang berarti mendeteksi dan menentukan jarak objek berdasarkan ...​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#jawablah-pertanyaan-berikut-dengan-tepat-pengamatan-atas-adanya-suatu-objek-dan-membedakan-objek-yang-satu-dengan-yang-lainnya-disebut-a-deteksib-identifikasic-interpretasid-justifikasi">8.
+                                            Jawablah pertanyaan berikut dengan tepat - Pengamatan atas adanya suatu objek dan membedakan objek yang satu dengan yang lainnya disebut...
+a. deteksi
+b. identifikasi
+c. interpretasi
+d. justifikasi</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#makhluk-kecil-tidak-tidak-bertulang-belakang-yang-digunakan-mendeteksi-pencemaran-air-adalah">9.
+                                            makhluk kecil tidak tidak bertulang belakang yang digunakan mendeteksi pencemaran air adalah</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#radar-menggunakan-gelombang-elektromagnetik-untukmendeteksi-suatu-objeksebabgelombang-elektromagnetik-terdiri-atas-komponenmedan-listrik-dan-medan-magnet">10.
+                                            Radar menggunakan gelombang elektromagnetik untuk
+mendeteksi suatu objek
+SEBAB
+gelombang elektromagnetik terdiri atas komponen
+medan listrik dan medan magnet.</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#ruang-lingkup-biologi-meliputi-objek-yang-berupa-kumpulan-mahluk-hidup-yang-terdeteksi-dengan-lingkunganya-disebut">11.
+                                            Ruang lingkup biologi meliputi objek yang berupa kumpulan mahluk hidup yang terdeteksi dengan lingkunganya disebut ?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#berikut-perhatikan-beberapa-pemanfaatan-gelombang-1-mendeteksi-kecepatan-suatu-objek-di-sekeliling-kapal-2-mendeteksi-jenis-pesawat-terbang-3-menentukan-kecepatan-aliran-darah-4-mendeteksi-benda-b">12.
+                                            berikut: Perhatikan beberapa pemanfaatan gelombang 1) Mendeteksi kecepatan suatu objek di sekeliling kapal 2) Mendeteksi jenis pesawat terbang 3) Menentukan kecepatan aliran darah 4 Mendeteksi benda-benda di bawah laut Contoh pemanfaatan gelombang bunyi dalam kehidupan sehari-hari ditunjukkan oleh angka a 1) dan 2) b. 2) dan 3) c. 2) dan 4) d. 3) dan 4)​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#3-ciri-utama-dalam-identifikasi-objek-adalah-a-spektralspasialdan-deteksib-spektraltemporaldan-analisisc-spektralspasialdan-temporald-spasialtemporaldan-deteksie-temporal-deteksidan-spektr">13.
+                                            3 ciri utama dalam identifikasi objek adalah...A.spektral,spasial,dan deteksiB.spektral,temporal,dan analisisC.spektral,spasial,dan temporalD.spasial,temporal,dan deteksiE.temporal, deteksi,dan spektra</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#gelombang-yang-dimanfaatkan-sistem-radar-untuk-mendeteksi-keberadaan-objek-lain-yang-berada-di-dekatnya-adalah">14.
+                                            Gelombang yang dimanfaatkan sistem radar untuk mendeteksi keberadaan objek lain yang berada di dekatnya adalah?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#carilah-sebuah-teks-laporan-percobaan-sederhana-untuk-mendeteksi-zat-berbahaya-pada-makanan">15.
+                                            Carilah sebuah teks laporan percobaan sederhana untuk mendeteksi zat berbahaya pada makanan</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#carilah-sebuah-teks-laporan-percobaan-sederhana-untuk-mendeteksi-zat-berbahaya-pada-makanan%e2%80%8b">16.
+                                            Carilah sebuah teks laporan percobaan sederhana untuk mendeteksi zat berbahaya pada makanan​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#pada-object-following-robot-robot-akan-bergerak-mendekat-jika-a-mendeteksi-objek-yang-ingin-diikuti-pada-jarak-ditentukan-b-mendeteksi-sinyal-bluetooth-pada-jarak-yang-diatur-c-mendeteksi-sin">17.
+                                            pada object following robot, robot akan bergerak mendekat jika. . . A. mendeteksi objek yang ingin diikuti pada jarak ditentukan B. mendeteksi sinyal Bluetooth pada jarak yang diatur C. mendeteksi sinyal Wifi pada jarak yang diatur D. mendeteksi sinyal inframerah pada jarak yang diaturplis jwabb ya kakkkk​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#uji-untuk-mendeteksi-perbedaan-yang-kecil-diantara-3-contoh-yang-disajikam-sekaligus-dan-tidak-ada-contoh-pembanding-contoh-baku-disebut">18.
+                                            Uji untuk mendeteksi perbedaan yang kecil diantara 3 contoh yang disajikam sekaligus dan tidak ada contoh pembanding / contoh baku disebut</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tolong-bantu-jawab-ya-tujuan-utama-proses-interpretasi-citra-dalam-penginderaanjauh-adalah-a-mendeteksi-dan-memprediksi-objek-b-mengelompokkan-dan-menganalisis-objek-c-mengenal-dan-mengiden">19.
+                                            Tolong bantu jawab ya. 
+Tujuan utama proses interpretasi citra dalam penginderaanjauh adalah... 
+A. mendeteksi dan memprediksi objek 
+B. mengelompokkan dan menganalisis objek 
+C. mengenal dan mengidentifikasi objek 
+D. mengklasihkasikan nilai spektral objek 
+E. memberi arti keberadaan objek</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#menghitung-jumlah-produksi-padi-pada-satuan-luas-sawah-tertentu-di-suatu-wilayah-dapat-dilakukan-melalui-penginderaan-jauh-yaitu-dengan-melakukan-a-deteksi-objek-berdasarkan-ciri-spasialb-deteksi">20.
+                                            Menghitung jumlah produksi padi pada satuan luas sawah tertentu di suatu wilayah dapat dilakukan melalui penginderaan jauh, yaitu dengan melakukan...a. deteksi objek berdasarkan ciri spasialb. deteksi objek berdasarkan ciri temporalc. deteksi dan identifikasi citra melalui bentuk objekd. Identifikasi citra berdasarkan tekstur, bentuk, dan ukurane. identifikasi citra pada objek melalui aspek rona dan warnaMohon bantuannya kak :(​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#carilah-struktur-dan-kaidah-teks-laporan-hasil-observasi-diabetes-melitus-deteksi-dini-cegah-komplikasi-penyakit">21.
+                                            Carilah struktur dan kaidah teks laporan hasil observasi "Diabetes melitus deteksi dini cegah komplikasi penyakit</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#berdasarkan-teks-laporan-percobaan-di-atas-bagai-mana-cara-mendeteksi-bahwa-makanan-tersebut-mengandung-zat-berbahaya">22.
+                                            Berdasarkan teks laporan percobaan di atas bagai mana cara mendeteksi bahwa makanan tersebut mengandung zat berbahaya</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#berdasarkan-teks-laporan-percobaan-di-atas-bagaimana-cara-mendeteksi-bahwa-makanan-tersebut-ngandung-zat-berbahaya%e2%80%8b">23.
+                                            Berdasarkan teks laporan percobaan di atas bagaimana cara mendeteksi bahwa makanan tersebut ngandung zat berbahaya?​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#jelaskan-cara-kerja-sebuah-sensor-ultrasonik-untuk-mencari-nilai-jarak-yang-dihasilkan-berdasarkan-dari-cara-kerja-mendeteksi-sebuah-objek">24.
+                                            Jelaskan cara kerja sebuah sensor ultrasonik untuk mencari nilai jarak yang dihasilkan berdasarkan dari cara kerja mendeteksi sebuah objek</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#perhatikan-bacaan-berikutantena-panjang-yang-kadang-melebihitubuhnya-menjadi-ciri-khas-jenis-kumbangini-antena-tersebut-berfungsi-sebagai-radarpendeteksi-objek-sekitar-antena-terhubungke-mata-maje">25.
+                                             Perhatikan bacaan berikut!Antena panjang yang kadang melebihitubuhnya menjadi ciri khas jenis kumbangini. Antena tersebut berfungsi sebagai radarpendeteksi objek sekitar. Antena terhubungke mata majemuk. Hal tersebut membuatkumbang ini dapat melihat dan mendeteksilingkungan sekitarnya.Kalimat utama paragraf di atas adalah .....A. Antena panjang yang kadang melebihitubuhnya menjadi ciri khas jeniskumbang ini.B. Antena tersebut berfungsi sebagai radarpendeteksi objek sekitar.C. Antena terhubung ke mata majemukD. Hal tersebut membuat kumbangini dapat melihat dan mendeteksilingkungan sekitarnya.​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#q_68%c2%b3-peringatan-lapor-truss-cuma-mau-bilang-jan-suka-repot-gw-tau-siapa-yg-lapor-nama-klen-terdeteksi-kalau-klen-repot-%e2%80%8b">26.
+                                            Q_68³ = peringatan : lapor truss.cuma mau bilang, jan suka repot.gw tau siapa yg lapor. Nama klen terdeteksi kalau klen repot.  ​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#pengamatan-atas-adanya-suatu-objek-dan-membedakan-antara-objek-yang-satu-dengan-yang-dengan-lainnya-disebuta-deteksi-b-identifikasi-c-interprestasid-justifikasi">27.
+                                            Pengamatan atas adanya suatu objek dan membedakan antara objek yang satu dengan yang dengan lainnya disebut
+a. deteksi 
+b. identifikasi 
+c. interprestasi
+d. justifikasi</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#suatu-alarm-yang-dapat-mendeteksi-objek-yang-mendekat-menggunakan-jenis-sensorthermocoupleultra-sonicntcptstolong-dong">28.
+                                            Suatu alarm yang dapat mendeteksi objek yang mendekat menggunakan jenis sensor
+Thermocouple
+Ultra sonic
+NTC
+PTS
+tolong dong</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tujuan-utama-proses-interpretasi-citra-dalam-penginderaan-jauh-adalah-a-mendeteksi-dan-memprediksi-objekb-mengelompokkan-dan-menganalisis-objekc-mengenal-dan-mengidentifikasi-objekd-mengklas">29.
+                                            Tujuan utama proses interpretasi citra dalam penginderaan jauh adalah...
+a. Mendeteksi dan memprediksi objek
+b. mengelompokkan dan menganalisis objek
+c. mengenal dan mengidentifikasi objek
+d. mengklasifikasikan nilai spectral objek
+e. memberi arti keberadaan objek</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#contoh-kalimat-dari-kata-dapat-diobati-dan-mendeteksi%e2%80%8b">30.
+                                            contoh kalimat dari kata dapat diobati dan mendeteksi​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tahapan-interpretasi-foto-udara-untuk-mengenaliberbagai-objek-dilakukan-dengan-a-deteksi-analisis-identifikasi-deduksib-deteksi-identifikasi-analisis-deduksic-identifikasi-deteksi">31.
+                                            Tahapan interpretasi foto udara untuk mengenaliberbagai objek dilakukan dengan ....a. deteksi - analisis - identifikasi - deduksib. deteksi - identifikasi - analisis - deduksiC.identifikasi - deteksi - deduksi -analisisd. identifikasi - deteksi - analisis - deduksie. deteksi - deduksi - identifikasi -analisis​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#digunakan-untuk-mengetahui-poin-utama-dari-suatu-objek-yang-ada-dalam-foto-a-klasifikasi-objekb-deteksi-landmarkc-segmentasi-objekd-identifikasi-objek%e2%80%8b">32.
+                                            Digunakan untuk mengetahui poin utama dari suatu objek yang ada dalam foto ...a. klasifikasi objekb. deteksi landmarkc. segmentasi objekd. identifikasi objek​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#teks-laporan-mendeteksi-zat-berbahaya-pada-makanan%e2%80%8b">33.
+                                            "teks laporan mendeteksi zat berbahaya pada makanan"​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#teknologi-computer-vision-dapat-digunakan-untuk-a-membuat-mobil-self-driving-dapat-mendeteksi-mobil-dan-objek-lain-di-jalan-raya-b-memungkinkan-mobil-menerima-perintah-dari-pengguna-melalui-suar">34.
+                                            Teknologi computer vision dapat digunakan untuk ... a. Membuat mobil self driving dapat mendeteksi mobil dan objek lain di jalan raya b. Memungkinkan mobil menerima perintah dari pengguna melalui suara c. Mendeteksi kendaraan yang melanggar lalu lintas d. Mendeteksi wajah pelaku kejahatan​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#5-contoh-hewan-yang-dapat-mendeteksi-bunyi-ultrasonik-dan-infrasonik">35.
+                                            5 contoh hewan yang dapat mendeteksi bunyi ultrasonik dan infrasonik?</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tujuan-utama-proses-interpretasi-citra-dalam-penginderaan-jauh-adalah-a-mendeteksi-dan-memprediksi-objekb-mengelompokkan-dan-menganalisis-objekc-mengenal-dan-mengidentifikasi-objekd-mengklas">36.
+                                            Tujuan utama proses interpretasi citra dalam penginderaan jauh adalah...
+a. Mendeteksi dan memprediksi objek
+b. mengelompokkan dan menganalisis objek
+c. mengenal dan mengidentifikasi objek
+d. mengklasifikasikan nilai spectral objek
+e. memberi arti keberadaan objek</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#3-ciri-utama-dalam-identifikasi-objek-adalah-a-spektralspasialdan-deteksib-spektraltemporaldan-analisisc-spektralspasialdan-temporald-spasialtemporaldan-deteksie-temporal-deteksidan-spektr">37.
+                                            3 ciri utama dalam identifikasi objek adalah...A.spektral,spasial,dan deteksiB.spektral,temporal,dan analisisC.spektral,spasial,dan temporalD.spasial,temporal,dan deteksiE.temporal, deteksi,dan spektra</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#lidah-bagian-sisi-belakang-dapat-mendeteksi-rasa">38.
+                                            lidah bagian sisi belakang dapat mendeteksi rasa</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#tugas-menulis-teks-laporan-hasil-observasi-secara-tidak-langsung-temanya-adalah-virus-corona-terdeteksi-di-indonesia%e2%80%8b">39.
+                                            tugas menulis teks laporan hasil observasi secara tidak langsung temanya adalah virus Corona terdeteksi di indonesia​</a>
+                                    </li>
+                                                                    <li class="ez-toc-page-1 ez-toc-heading-level-2">
+                                        <a class="ez-toc-link ez-toc-heading-1"
+                                            href="#teknologi-computer-vision-dapatdigunakan-untuk-a-mendeteksi-wajah-pelakukejahatanb-mendeteksi-kendaraan-yangmelanggar-lalu-lintasc-memungkinkan-mobil-menerimaperintah-dari-pengguna-melaluisuara">40.
+                                            Teknologi computer vision dapatdigunakan untuk ....A. mendeteksi wajah pelakukejahatanB. mendeteksi kendaraan yangmelanggar lalu lintasC. memungkinkan mobil menerimaperintah dari pengguna melaluisuaraD membuat mobil self-drivingdapat mendeteksi mobil danobjek lain di jalan raya​</a>
+                                    </li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                                            <h2 class="ez-toc-section" id="kenapa-python-tidak-bisa-menginstall-opencv%e2%80%8b">
+                            1. kenapa python tidak bisa menginstall opencv?​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Anda mendapatkan kesalahan-kesalahan karena opencv dan cv2 tidak python paket nama.</p><p></p><p>Ini adalah kedua dimasukkan sebagai bagian dari opencv-python paket yang tersedia untuk menginstal dari pip.</p><p></p><p>Jika anda menggunakan python 2 yang anda dapat menginstal dengan pip:</p><p></p><p>Atau gunakan equivilent untuk python 3:</p><p></p><p>Setelah menjalankan sesuai pip perintah paket anda harus tersedia untuk digunakan dari python.</p><p>Kenapa python tidak bisa menginstall opencv?​</p><p>Karena tampilan Spyder yang tidak menarik juga karena tidak ada fitur code assistance atau completion.</p><p></p><p>Penjelasan :</p><p>Python adalah bahasa pemrograman tujuan umum yang ditafsirkan, tingkat tinggi. Dibuat oleh Guido van Rossum dan pertama kali dirilis pada tahun 1991, filosofi desain Python menekankan keterbacaan kode dengan penggunaan spasi putih yang signifikan. Konstruksi bahasanya dan pendekatan berorientasi objek bertujuan untuk membantu pemrogram menulis kode yang jelas dan logis untuk proyek skala kecil dan besar.</p><p></p><p>◢█⬚█⬚█⬚█◣</p><p>✧⌔✧⌔✧⌔✧⌔✧⌔✧</p><p>BráīñlyPrøfëssør712</p><p>✧⌔✧⌔✧⌔✧⌔✧⌔✧</p><p>◥█⬚█⬚█⬚█◤</p><br />
+                                            <h2 class="ez-toc-section" id="bagaimana-cara-mendeteksi-kekeliruan-dalam-laporan-keuangan%e2%80%8b">
+                            2. bagaimana cara mendeteksi kekeliruan dalam laporan keuangan?​</h2><br />
+                        auditor diharuskan untuk menerapkan keseksamaan didalam perencanaan dan pelaksanaan audit serta melakukan penilaian hasil prosedur audit-nya. Beberapa hal yang perlu diperhatikan auditor dalam menentukan kemungkinan terdeteksinya kekeliruan dan ketidak-beresan adalah kompetensi dan integritas klien serta gaya cognitive auditor.<br /><br />~~~~~~~~~~~~<br />Semoga membantu!<br />Maaf kalau ada yang kurang*_*<br />
+                                            <h2 class="ez-toc-section" id="sensor-yang-digunakan-untuk-mendeteksi-objek-metal-tanpa-harus-menyentuhnya-adalah">
+                            3. Sensor yang digunakan untuk mendeteksi objek metal tanpa harus menyentuhnya adalah ..</h2><br />
+                        sinar x, karena sinar x memiliki frekuensi gelombang yang dapat mendeteksi benda logam<br />
+                                            <h2 class="ez-toc-section" id="nama-sistem-yang-dimiliki-kelelawar-untuk-mendeteksi-keberadaan-objek%e2%80%8b">
+                            4. Nama sistem yang dimiliki kelelawar untuk mendeteksi keberadaan objek?​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Ekolokasi atau biosonar. </p><p><strong>Penjelasan:</strong></p><p>Beberapa jenis binatang memiliki kemampuan ekolokasi, termasuk beberapa mamalia, beberapa jenis burung, seperti kelelawar, paus, lumba-lumba, juga celurut.</p><p></p><p>Istilah ekolokasi dicetuskan oleh Donal Griffin yang bekerja bersama Robert Galambos yang menemukan kemampuan ekolokasi pada kelelawar tahun 1938.[1] Jauh sebelum itu, pada abad ke 18, ilmuwan Italia Lazzaro Spallanzani dengan serangkaian percobaan menyimpulkan bahwa kelelawar melakukan navigasi bukan dengan penglihatan melainkan dengan pendengaran.[2] Pada saat itu, ekolokasi pada jenis paus belum di jelaskan, baru dua dekade setelah itu ekolokasi pada paus dijelaskan oleh Schevill dan McBride.</p><p></p><p></p><p><strong>Jawaban:</strong></p><p></p><p>Ekolokasi.</p><p></p><p>Ekolokasi adalah kemampuan kelelawar untuk mendeteksi mangsa, pemangsa dan benda-benda disekitarnya.</p><p></p><p>Kelelawar memiliki kemampuan ekolokasi karena matanya tidak berfungsi dengan sempurna, karena dari itu, memiliki kemampuan ekolokasi juga merupakan salah satu bentuk adaptasi kelelawar terhadap lingkungannya.</p><p></p><p>*Semoga Bermanfaat :)</p><br />
+                                            <h2 class="ez-toc-section" id="makhluk-kecil-tidak-tidak-bertulang-belakang-yang-digunakan-mendeteksi-pencemaran-air-adalah">
+                            5. makhluk kecil tidak tidak bertulang belakang yang digunakan mendeteksi pencemaran air adalah</h2><br />
+                        gurita kalo enggak salahmakrozoonbetos seinget ku itu<br />
+                                            <h2 class="ez-toc-section" id="perhatikan-beberapa-pemanfaatan-gelombang-1-mendeteksi-kecepatan-suatu-objek-di-sekeliling-kapal-2-mendeteksi-jenis-pesawat-terbang-3-menentukan-kecepatan-aliran-darah-4-mendeteksi-benda-benda-di">
+                            6. Perhatikan beberapa pemanfaatan gelombang: 1) Mendeteksi kecepatan suatu objek di sekeliling kapal 2) Mendeteksi jenis pesawat terbang 3) Menentukan kecepatan aliran darah 4) Mendeteksi benda-benda di bawah laut Contoh pemanfaatan gelombang bunyi dalam kehidupan sehari-hari ditunjukkan oleh angka a 1) dan 2) b. 2) dan 3)  c. 2) dan 4)  d. 3) dan 4)​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>jawabannya: D </p><p>alasannya karena yang no.2 tentu salah</p><p></p><p></p><p><strong>Penjelasan:</strong></p><p>alasannya karena yang no.2 tentu salah</p><p>maaf kalok salah</p><p></p><br />
+                                            <h2 class="ez-toc-section" id="radar-merupakan-singkatan-dari-radio-detectiona-and-rangingyang-berarti-mendeteksi-dan-menentukan-jarak-objek-berdasarkan-%e2%80%8b">
+                            7. radar merupakan singkatan dari radio detectiona and ranging,yang berarti mendeteksi dan menentukan jarak objek berdasarkan ...​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>gelombang eletromagentik</p><p><strong>Penjelasan:</strong></p><p>penjelasan ada di gambar. semoga tepat dan membantu</p><br />
+                                            <h2 class="ez-toc-section" id="jawablah-pertanyaan-berikut-dengan-tepat-pengamatan-atas-adanya-suatu-objek-dan-membedakan-objek-yang-satu-dengan-yang-lainnya-disebut-a-deteksib-identifikasic-interpretasid-justifikasi">
+                            8. Jawablah pertanyaan berikut dengan tepat - Pengamatan atas adanya suatu objek dan membedakan objek yang satu dengan yang lainnya disebut...
+a. deteksi
+b. identifikasi
+c. interpretasi
+d. justifikasi</h2><br />
+                        Pengamatan atas adanya suatu objek dan membedakan objek yang satu dengan yang lainnya disebut identifikasipengamatan atas adanya suatuobjek dan membedakan objek yang satu dengan yang lainnya disebut :identifikasi<br /><br />GOOD LUCK<br />SEMOGA BERMANFAAT☆<br />
+                                            <h2 class="ez-toc-section" id="makhluk-kecil-tidak-tidak-bertulang-belakang-yang-digunakan-mendeteksi-pencemaran-air-adalah">
+                            9. makhluk kecil tidak tidak bertulang belakang yang digunakan mendeteksi pencemaran air adalah</h2><br />
+                        gurita <br />mohon maaf jika salahkalau yang saya tahu...itu gurita..kalau bukan protozoa..<br />
+                                            <h2 class="ez-toc-section" id="radar-menggunakan-gelombang-elektromagnetik-untukmendeteksi-suatu-objeksebabgelombang-elektromagnetik-terdiri-atas-komponenmedan-listrik-dan-medan-magnet">
+                            10. Radar menggunakan gelombang elektromagnetik untuk
+mendeteksi suatu objek
+SEBAB
+gelombang elektromagnetik terdiri atas komponen
+medan listrik dan medan magnet.</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>pesawat terbang,kendaraan bermotor dan informasi/cuaca</p><br />
+                                            <h2 class="ez-toc-section" id="ruang-lingkup-biologi-meliputi-objek-yang-berupa-kumpulan-mahluk-hidup-yang-terdeteksi-dengan-lingkunganya-disebut">
+                            11. Ruang lingkup biologi meliputi objek yang berupa kumpulan mahluk hidup yang terdeteksi dengan lingkunganya disebut ?</h2><br />
+                        ruang lingkup disebut ekosistem<br />
+                                            <h2 class="ez-toc-section" id="berikut-perhatikan-beberapa-pemanfaatan-gelombang-1-mendeteksi-kecepatan-suatu-objek-di-sekeliling-kapal-2-mendeteksi-jenis-pesawat-terbang-3-menentukan-kecepatan-aliran-darah-4-mendeteksi-benda-b">
+                            12. berikut: Perhatikan beberapa pemanfaatan gelombang 1) Mendeteksi kecepatan suatu objek di sekeliling kapal 2) Mendeteksi jenis pesawat terbang 3) Menentukan kecepatan aliran darah 4 Mendeteksi benda-benda di bawah laut Contoh pemanfaatan gelombang bunyi dalam kehidupan sehari-hari ditunjukkan oleh angka a 1) dan 2) b. 2) dan 3) c. 2) dan 4) d. 3) dan 4)​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>jawaban yang benar adalah D. 3) dan 4) </p><p><strong>Jawaban:</strong></p><p>D.3 dan 4  </p><p><strong>Penjelasan:</strong></p><p>semoga bermanfaat </p><br />
+                                            <h2 class="ez-toc-section" id="3-ciri-utama-dalam-identifikasi-objek-adalah-a-spektralspasialdan-deteksib-spektraltemporaldan-analisisc-spektralspasialdan-temporald-spasialtemporaldan-deteksie-temporal-deteksidan-spektr">
+                            13. 3 ciri utama dalam identifikasi objek adalah...A.spektral,spasial,dan deteksiB.spektral,temporal,dan analisisC.spektral,spasial,dan temporalD.spasial,temporal,dan deteksiE.temporal, deteksi,dan spektra</h2><br />
+                        c. spektral, spasial dan temporal<br />
+                                            <h2 class="ez-toc-section" id="gelombang-yang-dimanfaatkan-sistem-radar-untuk-mendeteksi-keberadaan-objek-lain-yang-berada-di-dekatnya-adalah">
+                            14. Gelombang yang dimanfaatkan sistem radar untuk mendeteksi keberadaan objek lain yang berada di dekatnya adalah?</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Gelombang yang dimanfaatkan sistem radar untuk mendeteksi keberadaan objek lain yang berada di dekatnya adalah?</p><p></p>Gelombang Radar<p></p><p><strong>Penjelasan:</strong></p><p></p><p>Secara umum Gelombang Radar adalah gelombang elektromagnetik yang dapat digunakan untuk mendeteksi dan memonitor berbagai objek. </p><p></p><p>[tex] \\ [/tex]</p><p></p><p></p><br />
+                                            <h2 class="ez-toc-section" id="carilah-sebuah-teks-laporan-percobaan-sederhana-untuk-mendeteksi-zat-berbahaya-pada-makanan">
+                            15. Carilah sebuah teks laporan percobaan sederhana untuk mendeteksi zat berbahaya pada makanan</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>saya bisa memberikan Anda panduan umum untuk percobaan tersebut:</p><p></p><p>Judul: Percobaan Sederhana Mendeteksi Zat Berbahaya pada Makanan</p><p></p><p>Tujuan: Membuktikan adanya keberadaan zat berbahaya pada makanan menggunakan metode sederhana.</p><p></p><p>Bahan:</p><p>1. Makanan yang akan diperiksa (misalnya, sayuran atau buah)</p><p>2. Air bersih</p><p>3. Larutan garam</p><p>4. Kertas lakmus merah dan biru</p><p></p><p>Teknik:</p><p>1. Siapkan dua mangkuk kecil.</p><p>2. Potong makanan yang akan diperiksa menjadi beberapa bagian kecil.</p><p>3. Letakkan setengah bagian makanan di mangkuk pertama dan setengahnya lagi di mangkuk kedua.</p><p>4. Tuangkan air bersih ke dalam kedua mangkuk sehingga makanan terendam.</p><p>5. Tambahkan beberapa tetes larutan garam ke dalam mangkuk pertama dan aduk hingga larut.</p><p>6. Ambil kertas lakmus merah dan biru, lalu celupkan kertas tersebut ke dalam masing-masing mangkuk.</p><p>7. Amati perubahan warna kertas lakmus.</p><p></p><p>Hasil yang Diharapkan:</p><p>- Jika kertas lakmus merah berubah warna menjadi biru pada mangkuk pertama, itu dapat menunjukkan adanya zat berbahaya (seperti logam berat) dalam makanan yang bereaksi dengan garam.</p><p>- Jika kertas lakmus biru berubah menjadi merah pada mangkuk kedua, itu bisa menunjukkan adanya zat asam dalam makanan.</p><p></p><p>Catatan: Percobaan ini hanya bersifat ilustratif dan tidak menggantikan metode deteksi yang lebih canggih dan akurat yang dilakukan oleh ahli atau laboratorium makanan.</p><p></p><p>Pastikan untuk merencanakan percobaan dengan aman dan mengikuti pedoman keselamatan yang berlaku saat melakukan percobaan di rumah atau di lingkungan yang sesuai.</p><br />
+                                            <h2 class="ez-toc-section" id="carilah-sebuah-teks-laporan-percobaan-sederhana-untuk-mendeteksi-zat-berbahaya-pada-makanan%e2%80%8b">
+                            16. Carilah sebuah teks laporan percobaan sederhana untuk mendeteksi zat berbahaya pada makanan​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Judul: Deteksi Zat Berbahaya pada Makanan</p><p></p><p>Tujuan:</p><p>Tujuan dari percobaan ini adalah untuk melakukan deteksi zat berbahaya pada makanan menggunakan bahan-bahan sederhana.</p><p></p>Bahan:<p></p>Makanan contoh (misalnya, sayuran, buah, atau bahan makanan lainnya yang ingin diuji)Air bersihCangkir atau wadah kecilPenggiling atau blenderKertas penyaring atau saringan kopiPipet atau alat untuk mengambil cairanAlat pengukur (misalnya, sendok ukur)Kit uji kualitatif (misalnya, tes strip pH atau kit deteksi zat berbahaya lainnya, yang dapat dibeli di toko kimia atau kesehatan)<p></p>Prosedur:<p></p>Siapkan makanan contoh yang akan diuji. Pastikan makanan tersebut dalam keadaan segar dan belum diolah lebih lanjut.Pisahkan sebagian kecil dari makanan contoh, cukup untuk mencukupi untuk percobaan.Haluskan makanan contoh yang telah dipisahkan dengan menggunakan penggiling atau blender.Tambahkan sedikit air bersih ke dalam makanan yang telah dihaluskan dan aduk hingga membentuk larutan.Tempatkan kertas penyaring di atas cangkir atau wadah kecil.Tuangkan larutan makanan ke atas kertas penyaring, biarkan cairan meresap dan menyaring keluar di bawahnya. Cairan yang dihasilkan akan mengandung ekstrak makanan.Gunakan pipet atau alat yang sesuai untuk mengambil sejumlah kecil ekstrak makanan.Gunakan kit uji kualitatif yang telah Anda siapkan. Ikuti instruksi kit untuk mendeteksi zat berbahaya tertentu yang mungkin ada dalam makanan contoh.<p></p>Hasil dan Pengamatan:<p></p><p>Jika kit uji kualitatif menunjukkan perubahan warna atau indikator lain yang mengindikasikan keberadaan zat berbahaya, catat hasilnya.</p><p>Jika kit uji kualitatif tidak menunjukkan perubahan, catat bahwa makanan contoh tidak mengandung zat berbahaya yang dapat dideteksi oleh kit tersebut.</p><p></p><p><strong>Kesimpulan:</strong></p><p>Berdasarkan percobaan ini, kita dapat menyimpulkan bahwa metode deteksi zat berbahaya pada makanan menggunakan kit uji kualitatif telah berhasil untuk mendeteksi adanya zat berbahaya tertentu pada makanan contoh. Namun, perlu diingat bahwa metode ini hanya bersifat sederhana dan mungkin tidak dapat mendeteksi zat berbahaya lain yang tidak tercakup dalam kit uji yang digunakan</p><p><strong>MAAF </strong><strong>KALO </strong><strong>SALAH</strong></p><br />
+                                            <h2 class="ez-toc-section" id="pada-object-following-robot-robot-akan-bergerak-mendekat-jika-a-mendeteksi-objek-yang-ingin-diikuti-pada-jarak-ditentukan-b-mendeteksi-sinyal-bluetooth-pada-jarak-yang-diatur-c-mendeteksi-sin">
+                            17. pada object following robot, robot akan bergerak mendekat jika. . . A. mendeteksi objek yang ingin diikuti pada jarak ditentukan B. mendeteksi sinyal Bluetooth pada jarak yang diatur C. mendeteksi sinyal Wifi pada jarak yang diatur D. mendeteksi sinyal inframerah pada jarak yang diaturplis jwabb ya kakkkk​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>D. mendeteksi sinyal inframerah pada jarak yg diatur</p><p><strong>Penjelasan:</strong></p><p>maaf KLO salah dan semangat trus dalam menggapai cita²</p><br />
+                                            <h2 class="ez-toc-section" id="uji-untuk-mendeteksi-perbedaan-yang-kecil-diantara-3-contoh-yang-disajikam-sekaligus-dan-tidak-ada-contoh-pembanding-contoh-baku-disebut">
+                            18. Uji untuk mendeteksi perbedaan yang kecil diantara 3 contoh yang disajikam sekaligus dan tidak ada contoh pembanding / contoh baku disebut</h2><br />
+                        <p><strong>Jawaban:</strong></p><p><strong>Uji</strong><strong> </strong>Pembeda Segitiga</p><p></p><p>Pendahuluan <strong>Uji</strong><strong> </strong>pembedaan segitiga atau <strong>disebut</strong><strong> </strong>juga triangle test merupakan <strong>uji</strong><strong> </strong><strong>untuk</strong><strong> </strong><strong>mendeteksi</strong><strong> </strong><strong>perbedaan</strong><strong> </strong><strong>yang</strong><strong> </strong><strong>kecil</strong><strong>,</strong><strong> </strong>karenanya <strong>uji</strong><strong> </strong>ini lebih peka dibandingkan dengan <strong>Uji</strong><strong> </strong>Pasangan. Dalam <strong>U</strong><strong>ji</strong><strong> </strong>Segitiga <strong>disajikan</strong><strong> </strong><strong>3</strong><strong> </strong><strong>contoh</strong><strong> </strong><strong>sekaligus</strong><strong> </strong>dan tidak dikenal adanya <strong>contoh</strong><strong> </strong><strong>pembanding</strong><strong> </strong>atau <strong>contoh</strong><strong> </strong><strong>baku</strong><strong>.</strong><strong> </strong></p><p><strong>Penjelasan:</strong></p><p>Maaf kalo salah (⊙_☉), Semoga membantu (#^.^#), dan jangan lupa jadiin jawaban terbaik ya (◍•ᴗ•◍)❤</p><br />
+                                            <h2 class="ez-toc-section" id="tolong-bantu-jawab-ya-tujuan-utama-proses-interpretasi-citra-dalam-penginderaanjauh-adalah-a-mendeteksi-dan-memprediksi-objek-b-mengelompokkan-dan-menganalisis-objek-c-mengenal-dan-mengiden">
+                            19. Tolong bantu jawab ya. 
+Tujuan utama proses interpretasi citra dalam penginderaanjauh adalah... 
+A. mendeteksi dan memprediksi objek 
+B. mengelompokkan dan menganalisis objek 
+C. mengenal dan mengidentifikasi objek 
+D. mengklasihkasikan nilai spektral objek 
+E. memberi arti keberadaan objek</h2><br />
+                        Interpretasi citra : adalah kegiatan menafsir, mengkaji, mengidentifikasi, dan mengenali obyek pada citra, selanjutya menilai arti penting dari obyek tersebut..<br />tujuan utama nya c. mengenal dan mengidentifikasi objek<br /><br />seperti objek permukiman, sungai, sawah, dsb<br /><br />semoga membantu!<br />
+                                            <h2 class="ez-toc-section" id="menghitung-jumlah-produksi-padi-pada-satuan-luas-sawah-tertentu-di-suatu-wilayah-dapat-dilakukan-melalui-penginderaan-jauh-yaitu-dengan-melakukan-a-deteksi-objek-berdasarkan-ciri-spasialb-deteksi">
+                            20. Menghitung jumlah produksi padi pada satuan luas sawah tertentu di suatu wilayah dapat dilakukan melalui penginderaan jauh, yaitu dengan melakukan...a. deteksi objek berdasarkan ciri spasialb. deteksi objek berdasarkan ciri temporalc. deteksi dan identifikasi citra melalui bentuk objekd. Identifikasi citra berdasarkan tekstur, bentuk, dan ukurane. identifikasi citra pada objek melalui aspek rona dan warnaMohon bantuannya kak :(​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p> </p><p></p><p> </p><p>E,  indentifikasi citra pd objek melalui aspek  rona dan waran </p><p>▬▬▬▬▬▬ஜ۩۩ஜ▬▬▬▬▬▬</p><p></p>Jawaban :<p>e. identifikasi citra pada objek melalui aspek rona dan warna.</p><p></p>✍ Pembahasan :<p>Interpretasi citra dapat dilakukan melalui beberapa tahapan, yaitu deteksi , identifikasi , analisis , dan deduksi . Pada tahap identifikasi adalah kegiatan mencirikan objek yang telah dideteksi tadi untuk mendapatkan keterangan -keterangan yang lebih rinci . <strong>Dalam tahap identifikasi , ciri - ciri objek bisa kita kenali dari warna dan ronanya , ciri ini dikenal dengan istilah ciri spektral </strong>. Ciri - ciri objek juga bisa dikenali dari bentuk , ukuran , pola , bayangan , tekstur , situs , dan asosiasi yang dikenal dengan istilah ciri spasial . Pada <strong>proses identifikasi citra melalui rona dan warna ( ciri spektral ) dapat diketahui besaran jumlah produksi padi pada satuan luas sawah di suatu wilayah</strong>. Jika luas satuan sawah didominasi oleh warna kuning , maka satuan luas tersebut akan memproduksi padi sebanyak satuan luasnya. Jadi , jawaban yang tepat adalah<strong> </strong><strong>identifikasi citra pada objek melalui aspek rona dan warna</strong> <strong>(</strong><strong> </strong><strong>O</strong><strong>p</strong><strong>s</strong><strong>i</strong><strong> </strong><strong>e</strong><strong> </strong>).</p><p></p>Semoga membantu ^‿^<p></p><p>▬▬▬▬▬▬ஜ۩۩ஜ▬▬▬▬▬▬</p><br />
+                                            <h2 class="ez-toc-section" id="carilah-struktur-dan-kaidah-teks-laporan-hasil-observasi-diabetes-melitus-deteksi-dini-cegah-komplikasi-penyakit">
+                            21. Carilah struktur dan kaidah teks laporan hasil observasi "Diabetes melitus deteksi dini cegah komplikasi penyakit</h2><br />
+                        <p><strong>Jawaban:</strong></p><p> (DM) atau kencing manis merupakan penyakit yang sudah tidak asing lagi di telinga kita dan telah menjadi salah satu masalah kesehatan utama di Indonesia. Sesuai data dari Departemen Kesehatan, insiden penyakit ini mengalami peningkatan yang signifikan sejak tahun 2013. Penyakit ini tidak disertai dengan gejala yang terlihat jelas sehingga seringkali luput dari perhatian kita dan baru disadari setelah adanya komplikasi. Oleh karena itu, sangatlah penting bagi kita untuk melakukan pemeriksaan kesehatan secara berkala sehingga penyakit ini dapat diketahui / dideteksi, serta dapat ditata laksana sejak dini untuk mencegah terjadinya komplikasi.</p><p>Penyandang penyakit ini seringkali disertai penyakit penyerta (komorbid) lain, seperti hipertensi, dislipidemia, obesitas, dan penyakit jantung koroner. Pada berbagai penelitian yang telah dilakukan, risiko Diabetes meningkat 1,9 kali pada individu dengan obesitas sentral dan 1,6 kali pada pasien dengan hipertensi, sedangkan dislipidemia ditemukan pada 60% kasus Diabetes Melitus dan meningkat seiring dengan lamanya seseorang menderita Diabetes Melitus. Semakin lama seseorang menderita Diabetes Melitus, maka komplikasi juga akan meningkat, seperti :</p><p>– Katarak</p><p>– Retinopati Proliferatif</p><p>– Ulkus Diabetik</p><p>– Penyakit Jantung Koroner</p><p></p><p>Deteksi Diabetes Melitus</p><p>Penegakan diagnosis Diabetes dapat melalui anamnesis (wawancara pasien) untuk mengetahui riwayat penyakit yang diderita ataupun riwayat keluarga yang diketahui pernah menderita penyakit yang sama, dilanjutkan dengan pemeriksaan fisik dan penunjang lainnya, seperti pemeriksaan laboratorium.</p><p>Ada empat jenis pemeriksaan laboratorium untuk mendeteksi Diabetes dan seseorang dapat dinyatakan menderita Diabetes apabila :</p><p>1. Hasil pemeriksaan kadar gula sewaktu (tidak puasa) lebih dari 200 mg/dL</p><p>2. Hasil pemeriksaan Glukosa puasa lebih dari 126 mg/dL</p><p>3. Hasil pemeriksaan Kadar test toleransi glukosa (GTT) lebih dari 200 mg/dL</p><p>4. Hasil pemeriksaan HbA1C lebih dari 6,5%</p><p>Pemeriksaan laboratorium dilakukan melalui pemeriksaan kadar gula dari darah vena dan kadar HbA1C darah.</p><p></p><br />
+                                            <h2 class="ez-toc-section" id="berdasarkan-teks-laporan-percobaan-di-atas-bagai-mana-cara-mendeteksi-bahwa-makanan-tersebut-mengandung-zat-berbahaya">
+                            22. Berdasarkan teks laporan percobaan di atas bagai mana cara mendeteksi bahwa makanan tersebut mengandung zat berbahaya</h2><br />
+                        <p><strong>Jawaban:</strong></p><p> menggunakan minyak yg baru ( untuk makanan yg di goreng) </p><p>usahakan menggunakan air untuk di minum bukan menggunakan air untuk cuci piring ( makanan yg direbus) </p><p>tidak memakan makanan yg sudah di hinggapi lalat </p><p></p><br />
+                                            <h2 class="ez-toc-section" id="berdasarkan-teks-laporan-percobaan-di-atas-bagaimana-cara-mendeteksi-bahwa-makanan-tersebut-ngandung-zat-berbahaya%e2%80%8b">
+                            23. Berdasarkan teks laporan percobaan di atas bagaimana cara mendeteksi bahwa makanan tersebut ngandung zat berbahaya?​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Berdasarkan teks laporan yang telah saya baca tadi, cara mendeteksi bahwa makanan tersebut mengandung zat berbahaya adalah dengan menggunakan cairan kunyit yang didapatkan dari sari kunyit yang kemudian cairan tersebut dicampurkan dengan bahan makanan yang tadi.</p><br />
+                                            <h2 class="ez-toc-section" id="jelaskan-cara-kerja-sebuah-sensor-ultrasonik-untuk-mencari-nilai-jarak-yang-dihasilkan-berdasarkan-dari-cara-kerja-mendeteksi-sebuah-objek">
+                            24. Jelaskan cara kerja sebuah sensor ultrasonik untuk mencari nilai jarak yang dihasilkan berdasarkan dari cara kerja mendeteksi sebuah objek</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Cara kerja sensor ultrasonic adalah menggunakan gelombang suara dengan frekuensi 40khz - 400khz, untuk mecari nilai jarak adalah dengan cara pemamcar suara atau transmitter akan mengeluarkan suara lalu suara itu akan memantul pada objek yang diukur lalu kembali ke penerima suara atau receiver, lalu receiver akan menghitung selisih antara waktu pengiriman gelombang dan waktu gelombang pantul diterima.</p><p></p><p>rumus:</p><p>kecepatan = jarak/waktu (v = s/t). Kita tahu bahwa kecepatan gelombang suara sekitar 340 m/s sehingga untuk 1 cm (0,01 m) memerlukan waktu 0,01/340 atau 0,0000294 s</p><p></p><p>semoga membantu, enjoy belajar ya</p><p></p><p>jika jawaban ini benar, jadikanlah jawaban terpercaya</p><br />
+                                            <h2 class="ez-toc-section" id="perhatikan-bacaan-berikutantena-panjang-yang-kadang-melebihitubuhnya-menjadi-ciri-khas-jenis-kumbangini-antena-tersebut-berfungsi-sebagai-radarpendeteksi-objek-sekitar-antena-terhubungke-mata-maje">
+                            25.  Perhatikan bacaan berikut!Antena panjang yang kadang melebihitubuhnya menjadi ciri khas jenis kumbangini. Antena tersebut berfungsi sebagai radarpendeteksi objek sekitar. Antena terhubungke mata majemuk. Hal tersebut membuatkumbang ini dapat melihat dan mendeteksilingkungan sekitarnya.Kalimat utama paragraf di atas adalah .....A. Antena panjang yang kadang melebihitubuhnya menjadi ciri khas jeniskumbang ini.B. Antena tersebut berfungsi sebagai radarpendeteksi objek sekitar.C. Antena terhubung ke mata majemukD. Hal tersebut membuat kumbangini dapat melihat dan mendeteksilingkungan sekitarnya.​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>B</p><p><strong>Penjelasan</strong><strong>:</strong></p><p>itu tryout ya? </p><br />
+                                            <h2 class="ez-toc-section" id="q_68%c2%b3-peringatan-lapor-truss-cuma-mau-bilang-jan-suka-repot-gw-tau-siapa-yg-lapor-nama-klen-terdeteksi-kalau-klen-repot-%e2%80%8b">
+                            26. Q_68³ = peringatan : lapor truss.cuma mau bilang, jan suka repot.gw tau siapa yg lapor. Nama klen terdeteksi kalau klen repot.  ​</h2><br />
+                        <p>[tex]\tt {68}^{3} [/tex]</p><p>[tex]= 68 \times 68 \times 68 [/tex]</p><p>[tex]\tt = 4.624 \times 68[/tex]</p><p>[tex]\tt =&gt; \pink{314.432}[/tex]</p><p>[tex]\tt ||\red{Answer} \: \orange{By:} \green{Snaly01} \tt ||[/tex]</p><p></p>  Matematika <p>_________________</p><p></p>Penyelesaian<p>68³ = </p><p>68 × 68 = 4.624</p><p>                     24</p><p>                _______(×)</p><p>               <strong>3</strong><strong>1</strong><strong>4</strong><strong>.</strong><strong>4</strong><strong>3</strong><strong>2</strong></p><br />
+                                            <h2 class="ez-toc-section" id="pengamatan-atas-adanya-suatu-objek-dan-membedakan-antara-objek-yang-satu-dengan-yang-dengan-lainnya-disebuta-deteksi-b-identifikasi-c-interprestasid-justifikasi">
+                            27. Pengamatan atas adanya suatu objek dan membedakan antara objek yang satu dengan yang dengan lainnya disebut
+a. deteksi 
+b. identifikasi 
+c. interprestasi
+d. justifikasi</h2><br />
+                        jawabannya b. identifikasi<br /><br /><br />
+                                            <h2 class="ez-toc-section" id="suatu-alarm-yang-dapat-mendeteksi-objek-yang-mendekat-menggunakan-jenis-sensorthermocoupleultra-sonicntcptstolong-dong">
+                            28. Suatu alarm yang dapat mendeteksi objek yang mendekat menggunakan jenis sensor
+Thermocouple
+Ultra sonic
+NTC
+PTS
+tolong dong</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>ultra sonic </p><p><strong>Penjelasan:</strong></p><p>Sensor Ultrasonik merupakan sensor yang bekerja berdasarkan prinsip pantulan dari gelombang suara dan digunakan untuk mendeteksi keberadaan suatu obyek tertentu yang ada di depannya, frekuensi kerjanya pada daerah diatas gelombang suara dari 40 KHz hingga 400 KHz.</p><p><strong>Jawaban:</strong></p><p>ultra Sonic karena dapat mendeteksi objek yang mendekat</p><p><strong>Penjelasan:</strong></p><p>semoga bermanfaat </p><br />
+                                            <h2 class="ez-toc-section" id="tujuan-utama-proses-interpretasi-citra-dalam-penginderaan-jauh-adalah-a-mendeteksi-dan-memprediksi-objekb-mengelompokkan-dan-menganalisis-objekc-mengenal-dan-mengidentifikasi-objekd-mengklas">
+                            29. Tujuan utama proses interpretasi citra dalam penginderaan jauh adalah...
+a. Mendeteksi dan memprediksi objek
+b. mengelompokkan dan menganalisis objek
+c. mengenal dan mengidentifikasi objek
+d. mengklasifikasikan nilai spectral objek
+e. memberi arti keberadaan objek</h2><br />
+                        klo menurut gw jawabannya a/b<br />tp gw pikir lebih kuat ke yg a<br />semoga beruntungA. Dapat mendeteksi dan memprediksi objek.<br />
+                                            <h2 class="ez-toc-section" id="contoh-kalimat-dari-kata-dapat-diobati-dan-mendeteksi%e2%80%8b">
+                            30. contoh kalimat dari kata dapat diobati dan mendeteksi​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Polisi mendeteksi ada sidik jari lain di mobil korban</p><p>Mata kering dapat diobati dengan insto</p><p><strong>Jawaban:</strong></p><p>akhirnya si Aby dapat diobati oleh orang tuanya</p><p>kami tidak bisa mendeteksi penyakit ini</p><p><strong>Penjelasan:</strong></p><p>semoga membantu</p><br />
+                                            <h2 class="ez-toc-section" id="tahapan-interpretasi-foto-udara-untuk-mengenaliberbagai-objek-dilakukan-dengan-a-deteksi-analisis-identifikasi-deduksib-deteksi-identifikasi-analisis-deduksic-identifikasi-deteksi">
+                            31. Tahapan interpretasi foto udara untuk mengenaliberbagai objek dilakukan dengan ....a. deteksi - analisis - identifikasi - deduksib. deteksi - identifikasi - analisis - deduksiC.identifikasi - deteksi - deduksi -analisisd. identifikasi - deteksi - analisis - deduksie. deteksi - deduksi - identifikasi -analisis​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p><strong>B</strong><strong>.</strong></p><p><strong>Penjelasan:</strong></p><p> deteksi - identifikasi - analisis - deduksi</p><br />
+                                            <h2 class="ez-toc-section" id="digunakan-untuk-mengetahui-poin-utama-dari-suatu-objek-yang-ada-dalam-foto-a-klasifikasi-objekb-deteksi-landmarkc-segmentasi-objekd-identifikasi-objek%e2%80%8b">
+                            32. Digunakan untuk mengetahui poin utama dari suatu objek yang ada dalam foto ...a. klasifikasi objekb. deteksi landmarkc. segmentasi objekd. identifikasi objek​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>D.identifikasi objek</p><p><strong>Penjelasan:</strong></p><p>semoga bisa membantu</p><p><strong>Jawaban:</strong></p><p>c.segmentasi objek</p><p><strong>Penjelasan:</strong></p><p>maaf kalau salah:)</p><br />
+                                            <h2 class="ez-toc-section" id="teks-laporan-mendeteksi-zat-berbahaya-pada-makanan%e2%80%8b">
+                            33. "teks laporan mendeteksi zat berbahaya pada makanan"​</h2><br />
+                        <p>JAWABAN:</p><p>  </p><p>matapelajaran:mari kerjakan soal-soal berikut dengan teliti dan benar</p><br />
+                                            <h2 class="ez-toc-section" id="teknologi-computer-vision-dapat-digunakan-untuk-a-membuat-mobil-self-driving-dapat-mendeteksi-mobil-dan-objek-lain-di-jalan-raya-b-memungkinkan-mobil-menerima-perintah-dari-pengguna-melalui-suar">
+                            34. Teknologi computer vision dapat digunakan untuk ... a. Membuat mobil self driving dapat mendeteksi mobil dan objek lain di jalan raya b. Memungkinkan mobil menerima perintah dari pengguna melalui suara c. Mendeteksi kendaraan yang melanggar lalu lintas d. Mendeteksi wajah pelaku kejahatan​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p><strong>A</strong><strong>.</strong></p><p><strong>Penjelasan:</strong></p><p><strong>Teknologi computer vision</strong></p><p>adalah tehnologi berupa sensor ysng berfungsi untuk mendeteksi keberadaan sesuatu di sekitarnya untuk menghindari akibat dari sebab yang telah terlewati</p>☘Jawaban:☘<p>Teknologi computer vision dapat digunakan untuk . . . .</p>A. Membuat mobil self driving dapat mendeteksi mobil dan objek lain di jalan raya <p>B. Memungkinkan mobil menerima perintah dari pengguna melalui suara </p><p>C. Mendeteksi kendaraan yang melanggar lalu lintas </p><p>D. Mendeteksi wajah pelaku kejahatan</p>✔Penjelasan:✔<p>Computer vision adalah teknologi yang dapat menganalisis gambar di depannya sehingga informasi tersebut dapat berubah menjadi perintah tertentu. Teknologi computer vision dapat digunakan untuk membuat mobil self driving yang dapat mendeteksi mobil dan objek lain di jalan raya.</p><p></p><br />
+                                            <h2 class="ez-toc-section" id="5-contoh-hewan-yang-dapat-mendeteksi-bunyi-ultrasonik-dan-infrasonik">
+                            35. 5 contoh hewan yang dapat mendeteksi bunyi ultrasonik dan infrasonik?</h2><br />
+                        ultrasonik: lumba-lumba, kelelawar, paus, burung walet, tikus, kucing,  4njing, belalang<br /><br />infrasonik : kuda nil, badak, jerapah, burung merpati, hiu, ular, jangkrik.<br />
+                                            <h2 class="ez-toc-section" id="tujuan-utama-proses-interpretasi-citra-dalam-penginderaan-jauh-adalah-a-mendeteksi-dan-memprediksi-objekb-mengelompokkan-dan-menganalisis-objekc-mengenal-dan-mengidentifikasi-objekd-mengklas">
+                            36. Tujuan utama proses interpretasi citra dalam penginderaan jauh adalah...
+a. Mendeteksi dan memprediksi objek
+b. mengelompokkan dan menganalisis objek
+c. mengenal dan mengidentifikasi objek
+d. mengklasifikasikan nilai spectral objek
+e. memberi arti keberadaan objek</h2><br />
+                        Tujuan utama proses interpretasi citra ialah <br />@ a.c. mengenal dan mengidentifikasi objek<br /><br />seperti objek permukiman, sungai, sawah, dsb<br /><br />semoga membantu!<br />
+                                            <h2 class="ez-toc-section" id="3-ciri-utama-dalam-identifikasi-objek-adalah-a-spektralspasialdan-deteksib-spektraltemporaldan-analisisc-spektralspasialdan-temporald-spasialtemporaldan-deteksie-temporal-deteksidan-spektr">
+                            37. 3 ciri utama dalam identifikasi objek adalah...A.spektral,spasial,dan deteksiB.spektral,temporal,dan analisisC.spektral,spasial,dan temporalD.spasial,temporal,dan deteksiE.temporal, deteksi,dan spektra</h2><br />
+                        c. spektral  spasial dan temporal<br />
+                                            <h2 class="ez-toc-section" id="lidah-bagian-sisi-belakang-dapat-mendeteksi-rasa">
+                            38. lidah bagian sisi belakang dapat mendeteksi rasa</h2><br />
+                        pahit kalo ga salah ya bener :)sisi belakang mendeteksi rasa pahit<br />
+                                            <h2 class="ez-toc-section" id="tugas-menulis-teks-laporan-hasil-observasi-secara-tidak-langsung-temanya-adalah-virus-corona-terdeteksi-di-indonesia%e2%80%8b">
+                            39. tugas menulis teks laporan hasil observasi secara tidak langsung temanya adalah virus Corona terdeteksi di indonesia​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>Pada awal Januari, negara China mengkonfirmasi bahwa negaranya terpapar sebuah virus yang di beri nama Covid-19. Covid-19 di China sendiri, sudah menyebar saat itu. Yang membuat tenaga medis kewalahan menangani pasien-pasien Covid-19, yang setiap bertambahnya hari semakin bertambah pasiennya.
+</p><p>Kemudian, Covid 19 menyebar ke berbagai negara termasuk Indonesia. Pertama kali Covid-19 dapat masuk ke Indonesia, karena, saat itu ada warga Indonesia yang menemui warga jepang.
+</p><p>Namun ternyata, warga Jepang tersebut terkena Covid-19. Yang menyebabkan, dua warga Indonesia ikut tertular karenanya.
+</p><p>Saat ini, pemerintah berupaya mengurangi Covid-19 dengan melakukan PSBB Skala Besar. Hal ini menyebabkan, beberapa fasilitas di Indonesia harus ditutup karenanya.
+</p><p>Namun, Covid-19 di Indonesia tidak berkurang angkanya, bahkan semakin bertambah setiap harinya. Ini membuat warga menjadi takut dan resah.
+</p><p></p><p><strong>Penjelasan:</strong></p><p></p><br />
+                                            <h2 class="ez-toc-section" id="teknologi-computer-vision-dapatdigunakan-untuk-a-mendeteksi-wajah-pelakukejahatanb-mendeteksi-kendaraan-yangmelanggar-lalu-lintasc-memungkinkan-mobil-menerimaperintah-dari-pengguna-melaluisuara">
+                            40. Teknologi computer vision dapatdigunakan untuk ....A. mendeteksi wajah pelakukejahatanB. mendeteksi kendaraan yangmelanggar lalu lintasC. memungkinkan mobil menerimaperintah dari pengguna melaluisuaraD membuat mobil self-drivingdapat mendeteksi mobil danobjek lain di jalan raya​</h2><br />
+                        <p><strong>Jawaban:</strong></p><p>D. membuat mobil self-dirving dapat mendeteksi mobil dan objek lain di jalan raya, maaf kalo salah.. </p><br />
+                    
+                </div>
+                <div class="youtubeVideo" style="text-align: center">
+                    <h3>Video Terkait</h3>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/ocA30qI9Z-M?controls=0" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"allowfullscreen></iframe>
+                </div>
+                <footer class="entry-meta" aria-label="Meta postingan">
+                    <span class="cat-links"><span class="gp-icon icon-categories"><svg viewBox="0 0 512 512"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
+                                <path
+                                    d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z">
+                                </path>
+                            </svg></span><span class="screen-reader-text">Kategori </span>ti</span>
+            </div>
+        </article>
+    </main>
+            </div>
+            <div class="widget-area sidebar is-right-sidebar" id="right-sidebar">
+                <div class="inside-right-sidebar">
+                    <aside id="categories-2" class="widget inner-padding widget_categories">
+                        <h2 class="widget-title">Topik</h2>
+                        <ul>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/pendahuluan-latar-belakang-masalah.html">Pendahuluan Latar Belakang Masalah</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-cover-makalah-uts.html">Contoh Cover Makalah Uts</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-pendahuluan-tentang-hapusnya-perikatan.html">Contoh Pendahuluan Tentang Hapusnya Perikatan</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-penulisan-latar-belakang-dalam-laporan-pkl.html">Contoh Penulisan Latar Belakang Dalam Laporan Pkl</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kata-pengantar-laporan-hasil-musrenbang-kelurahan.html">Contoh Kata Pengantar Laporan Hasil Musrenbang Kelurahan</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-keterampilan-yang-dibutuhkan-dalam-berkomunikasi-bisnis.html">Contoh Makalah Keterampilan Yang Dibutuhkan Dalam Berkomunikasi Bisnis</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-ipa-tentang-global-warming.html">Contoh Makalah Ipa Tentang Global Warming</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kesimpulan-dan-saran-makalah-tanah-dan-fungsi-bagi-tanaman.html">Contoh Kesimpulan Dan Saran Makalah Tanah Dan Fungsi Bagi Tanaman</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-filsafat-keperawatan.html">Contoh Makalah Filsafat Keperawatan</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-teks-observasi-tentang-ikan-cupang.html">Contoh Latar Belakang Teks Observasi Tentang Ikan Cupang</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-hukum-dagang-hukum-transportasi.html">Contoh Makalah Hukum Dagang Hukum Transportasi</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-internalisasi-nilai-nilai-pancasila.html">Contoh Makalah Internalisasi Nilai Nilai Pancasila</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-ki-hajar-dewantara.html">Contoh Makalah Ki Hajar Dewantara</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-kata-pengantar-perpanjang-ijin-operasional-lembaga-kursus-dan-pelatihan.html">Contoh Kata Pengantar Perpanjang Ijin Operasional Lembaga Kursus Dan Pelatihan</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/langkah-membuat-skripsi.html">Langkah Membuat Skripsi</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-makalah-guru-profesional.html">Contoh Makalah Guru Profesional</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-emansipasi-wanita.html">Contoh Latar Belakang Emansipasi Wanita</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-latar-belakang-makalah-casing-drill.html">Contoh Latar Belakang Makalah Casing Drill</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-pendahuluan-hakikat-dan-ruang-lingkup-sejarah.html">Contoh Pendahuluan Hakikat Dan Ruang Lingkup Sejarah</a>
+                                </li>
+                                                            <li class="cat-item cat-item-23"><a
+                                        href="https://materimakalah.github.io/contoh-daftar-isi-makalah-tik.html">Contoh Daftar Isi Makalah Tik</a>
+                                </li>
+                                                    </ul>
+
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="site-footer">
+        <footer class="site-info" aria-label="Situs" itemtype="https://schema.org/WPFooter" itemscope>
+            <div class="inside-site-info grid-container">
+                <div class="copyright-bar">
+                    <span class="copyright">&copy; 2023 <a href="https://materimakalah.github.io"
+                            itemprop="url">BELAJAR</a></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <a title="Gulirkan kembali ke puncak laman" aria-label="Gulirkan kembali ke puncak laman" rel="nofollow"
+        href="#" class="generate-back-to-top" data-scroll-speed="400" data-start-scroll="300">
+        <span class="gp-icon icon-arrow-up"><svg viewBox="0 0 330 512" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd"
+                clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+                <path
+                    d="M305.863 314.916c0 2.266-1.133 4.815-2.832 6.514l-14.157 14.163c-1.699 1.7-3.964 2.832-6.513 2.832-2.265 0-4.813-1.133-6.512-2.832L164.572 224.276 53.295 335.593c-1.699 1.7-4.247 2.832-6.512 2.832-2.265 0-4.814-1.133-6.513-2.832L26.113 321.43c-1.699-1.7-2.831-4.248-2.831-6.514s1.132-4.816 2.831-6.515L158.06 176.408c1.699-1.7 4.247-2.833 6.512-2.833 2.265 0 4.814 1.133 6.513 2.833L303.03 308.4c1.7 1.7 2.832 4.249 2.832 6.515z"
+                    fill-rule="nonzero" />
+            </svg></span>
+    </a>
+    <script id="generate-a11y">
+        ! function() {
+            "use strict";
+            if ("querySelector" in document && "addEventListener" in window) {
+                var e = document.body;
+                e.addEventListener("mousedown", function() {
+                    e.classList.add("using-mouse")
+                }), e.addEventListener("keydown", function() {
+                    e.classList.remove("using-mouse")
+                })
+            }
+        }();
+    </script>
+    <!--[if lte IE 11]>
+<script src='https://materimakalah.github.io/js/classList.min.js' ?ver=3.2.4' id='generate-classlist-js'></script>
+<![endif]-->
+    <script id='generate-menu-js-extra'>
+        var generatepressMenu = {
+            "toggleOpenedSubMenus": "1",
+            "openSubMenuLabel": "Buka Submenu",
+            "closeSubMenuLabel": "Tutup submenu"
+        };
+    </script>
+    <script src='https://materimakalah.github.io/js/menu.min.js' ?ver=3.2.4' id='generate-menu-js'></script>
+    <script id='generate-navigation-search-js-extra'>
+        var generatepressNavSearch = {
+            "open": "Buka Kolom Pencarian",
+            "close": "Tutup Kolom Pencarian"
+        };
+    </script>
+    <script src='https://materimakalah.github.io/js/navigation-search.min.js' ?ver=3.2.4' id='generate-navigation-search-js'></script>
+    <script id='generate-back-to-top-js-extra'>
+        var generatepressBackToTop = {
+            "smooth": "1"
+        };
+    </script>
+    <script src='https://materimakalah.github.io/js/back-to-top.min.js' ?ver=3.2.4' id='generate-back-to-top-js'></script>
+<script type='text/javascript' src='//cloudlessmajesty.com/1d/a7/d8/1da7d80839196eccc4a624ab91e5ccbf.js'></script>
+<script type='text/javascript' src='//cloudlessmajesty.com/8d/be/84/8dbe84c54b7cc5b78aa0e0a1fbdbae07.js'></script>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4777688,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4777688&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+</body>
+
+</html>
